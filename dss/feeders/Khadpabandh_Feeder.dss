@@ -1,0 +1,162 @@
+Clear
+New Circuit.KhadpabandhFeeder basekv=11 bus1=substation pu=1.0
+
+set mode=Snapshot
+set ControlMode=Off
+
+!LINE CODE
+New Line.S01 bus1=substation bus2=3W_Colony phases=3 length=0.496 units=km r1=0.13 x1=0.0851
+New Line.L1 bus1=3W_Colony bus2=2W_Curti phases=3 length=0.054 units=km r1=0.13 x1=0.0851
+New Line.L2 bus1=3W_Colony bus2=Colony phases=3 length=0.076 units=km r1=0.13 x1=0.0851
+New Line.L3 bus1=Colony bus2=Lotlikar_Naga_masjid phases=3 length=0.495 units=km r1=0.13 x1=0.0851
+New Line.L4 bus1=Lotlikar_Naga_masjid bus2=USMANIA phases=3 length=0.24 units=km r1=0.13 x1=0.0851
+New Line.L5 bus1=USMANIA bus2=Hussain phases=3 length=0.2 units=km r1=0.13 x1=0.0851
+New Line.L6 bus1=Hussain bus2=4w_sports_c phases=3 length=0.28 units=km r1=0.13 x1=0.0851
+New Line.L7 bus1=4w_sports_c bus2=Sports_Complex phases=3 length=0.195 units=km r1=0.13 x1=0.0851
+New Line.L8 bus1=Sports_Complex bus2=Sports_Complex_HTC phases=3 length=0.298 units=km r1=0.13 x1=0.0851
+New Line.L9 bus1=Sports_Complex bus2=4w_sports_c phases=3 length=0.398 units=km r1=0.13 x1=0.0851
+New Line.L10 bus1=4w_sports_c bus2=3w_sports_c phases=3 length=0.02 units=km r1=0.13 x1=0.0851
+New Line.L11 bus1=3w_sports_c bus2=4w_military_gate phases=3 length=0.398 units=km r1=0.13 x1=0.0851
+New Line.L12 bus1=4w_sports_c bus2=4w_sheetal_bar phases=3 length=0.469 units=km r1=0.13 x1=0.0851
+New Line.L13 bus1=4w_sheetal_bar bus2=Varkhande phases=3 length=0.02 units=km r1=0.13 x1=0.0851
+New Line.L14 bus1=Varkhande bus2=4w_ganganath phases=3 length=0.44 units=km r1=0.13 x1=0.0851
+New Line.L15 bus1=4w_ganganath bus2=2w_Varkhandem phases=3 length=0.05 units=km r1=0.13 x1=0.0851
+New Line.L16 bus1=4w_ganganath bus2=Ganganath phases=3 length=0.05 units=km r1=0.13 x1=0.0851
+New Line.L17 bus1=4w_ganganath bus2=Ganganath phases=3 length=0.05 units=km r1=0.13 x1=0.0851
+New Line.L18 bus1=4w_ganganath bus2=Heritage_II phases=3 length=0.159 units=km r1=0.13 x1=0.0851
+New Line.L19 bus1=Heritage_II bus2=Heritage_I phases=3 length=0.01 units=km r1=0.13 x1=0.0851
+New Line.L20 bus1=Heritage_I bus2=Almeda phases=3 length=0.424 units=km r1=0.13 x1=0.0851
+New Line.L21 bus1=Almeda bus2=3w_Almeda phases=3 length=0.502 units=km r1=0.13 x1=0.0851
+New Line.L22 bus1=3w_Almeda bus2=Angarki phases=3 length=0.148 units=km r1=0.13 x1=0.0851
+New Line.L23 bus1=Angarki bus2=3w_maruti_temple phases=3 length=0.168 units=km r1=0.13 x1=0.0851
+New Line.L24 bus1=3w_maruti_temple bus2=Sungrace_HTC phases=3 length=0.054 units=km r1=0.13 x1=0.0851
+New Line.L25 bus1=Sungrace_HTC bus2=Vrudhavan_Garden phases=3 length=0.198 units=km r1=0.13 x1=0.0851
+New Line.L26 bus1=Vrudhavan_Garden bus2=4w_sheetal_bar phases=3 length=0.378 units=km r1=0.13 x1=0.0851
+New Line.L27 bus1=4w_sheetal_bar bus2=2w_panditwada phases=3 length=0.238 units=km r1=0.13 x1=0.0851
+New Line.L28 bus1=3w_maruti_temple bus2=4w_military_gate phases=3 length=0.238 units=km r1=0.13 x1=0.0851
+New Line.L29 bus1=3w_Almeda bus2=Patil phases=3 length=0.5 units=km r1=0.13 x1=0.0851
+New Line.L30 bus1=Patil bus2=3w_purohit phases=3 length=0.5 units=km r1=0.13 x1=0.0851
+New Line.L31 bus1=3w_purohit bus2=BHARDWAJ phases=3 length=0.26 units=km r1=0.13 x1=0.0851
+New Line.L32 bus1=BHARDWAJ bus2=Mahalaxmi_Dev phases=3 length=0.189 units=km r1=0.13 x1=0.0851
+New Line.L33 bus1=Mahalaxmi_Dev bus2=Ravinagar phases=3 length=0.479 units=km r1=0.13 x1=0.0851
+New Line.L34 bus1=Ravinagar bus2=3w_Ravinagar phases=3 length=0.02 units=km r1=0.13 x1=0.0851
+New Line.L35 bus1=3w_Ravinagar bus2=2w_Ravinagar phases=3 length=0.02 units=km r1=0.13 x1=0.0851
+New Line.L36 bus1=3w_purohit bus2=Purohit phases=3 length=0.02 units=km r1=0.13 x1=0.0851
+New Line.L37 bus1=Purohit bus2=Rani_Construction phases=3 length=0.499 units=km r1=0.13 x1=0.0851
+New Line.L38 bus1=Rani_Construction bus2=Kedar phases=3 length=0.497 units=km r1=0.13 x1=0.0851
+New Line.L39 bus1=Kedar bus2=Dessai_Santoba phases=3 length=0.087 units=km r1=0.13 x1=0.0851
+New Line.L40 bus1=Dessai_Santoba bus2=Maharudra phases=3 length=0.097 units=km r1=0.13 x1=0.0851
+New Line.L41 bus1=Maharudra bus2=2W_Perigol phases=3 length=0.105 units=km r1=0.13 x1=0.0851
+New Line.L42 bus1=3w_Ravinagar bus2=Friends_Colony phases=3 length=0.47 units=km r1=0.13 x1=0.0851
+New Line.L43 bus1=Friends_Colony bus2=Khadpabandh_Garden_II phases=3 length=0.14 units=km r1=0.13 x1=0.0851
+New Line.L44 bus1=Khadpabandh_Garden_II bus2=3w_four_pole phases=3 length=0.16 units=km r1=0.13 x1=0.0851
+New Line.L45 bus1=3w_four_pole bus2=4w_durbhat phases=3 length=0.11 units=km r1=0.13 x1=0.0851
+New Line.L46 bus1=3w_four_pole bus2=Khadpabandh_Garden_I phases=3 length=0.2 units=km r1=0.13 x1=0.0851
+New Line.L47 bus1=Khadpabandh_Garden_I bus2=Sewerage_HTC phases=3 length=0.19 units=km r1=0.13 x1=0.0851
+New Line.L48 bus1=Sewerage_HTC bus2=3w_daag phases=3 length=0.39 units=km r1=0.13 x1=0.0851
+New Line.L49 bus1=3w_daag bus2=3w_ponda_1 phases=3 length=0.02 units=km r1=0.13 x1=0.0851
+New Line.L50 bus1=3w_daag bus2=3w_bhagwati phases=3 length=0.5 units=km r1=0.13 x1=0.0851
+New Line.L51 bus1=3w_daag bus2=Bhagwati_II phases=3 length=0.16 units=km r1=0.13 x1=0.0851
+New Line.L52 bus1=Bhagwati_II bus2=Bhagwati_I phases=3 length=0.4 units=km r1=0.13 x1=0.0851
+New Line.L53 bus1=Bhagwati_I bus2=2w_satyanarayan_temple phases=3 length=0.5 units=km r1=0.13 x1=0.0851
+
+
+!TRANSFORMERS
+
+New Transformer.Colony phases=3 windings=2 buses=[Colony, ColonyBus] conns=[wye wye] kvs=[11 0.415] kvas=[200 200] %Rs=[1.41 1.41] Xhl=4.48
+New Transformer.Lotlikar_Naga_masjid phases=3 windings=2 buses=[Lotlikar_Naga_masjid, Lotlikar_Naga_masjidBus] conns=[wye wye] kvs=[11 0.415] kvas=[200 200] %Rs=[1.41 1.41] Xhl=4.48
+New Transformer.USMANIA phases=3 windings=2 buses=[USMANIA, USMANIABus] conns=[wye wye] kvs=[11 0.415] kvas=[100 100] %Rs=[1.41 1.41] Xhl=4.48
+New Transformer.Varkhande phases=3 windings=2 buses=[Varkhande, VarkhandeBus] conns=[wye wye] kvs=[11 0.415] kvas=[160 160] %Rs=[1.41 1.41] Xhl=4.48
+New Transformer.Vrudhavan_Garden phases=3 windings=2 buses=[Vrudhavan_Garden, Vrudhavan_GardenBus] conns=[wye wye] kvs=[11 0.415] kvas=[200 200] %Rs=[1.41 1.41] Xhl=4.48
+New Transformer.Nagamasjid_new phases=3 windings=2 buses=[Nagamasjid_new, Nagamasjid_newBus] conns=[wye wye] kvs=[11 0.415] kvas=[200 200] %Rs=[1.41 1.41] Xhl=4.48
+New Transformer.Angarki phases=3 windings=2 buses=[Angarki, AngarkiBus] conns=[wye wye] kvs=[11 0.415] kvas=[200 200] %Rs=[1.41 1.41] Xhl=4.48
+New Transformer.Ganganath phases=3 windings=2 buses=[Ganganath, GanganathBus] conns=[wye wye] kvs=[11 0.415] kvas=[200 200] %Rs=[1.41 1.41] Xhl=4.48
+New Transformer.Heritage_I phases=3 windings=2 buses=[Heritage_I, Heritage_IBus] conns=[wye wye] kvs=[11 0.415] kvas=[400 400] %Rs=[1.41 1.41] Xhl=4.48
+New Transformer.Heritage_II phases=3 windings=2 buses=[Heritage_II, Heritage_IIBus] conns=[wye wye] kvs=[11 0.415] kvas=[400 400] %Rs=[1.41 1.41] Xhl=4.48
+New Transformer.Almeda phases=3 windings=2 buses=[Almeda, AlmedaBus] conns=[wye wye] kvs=[11 0.415] kvas=[160 160] %Rs=[1.41 1.41] Xhl=4.48
+New Transformer.Patil phases=3 windings=2 buses=[Patil, PatilBus] conns=[wye wye] kvs=[11 0.415] kvas=[200 200] %Rs=[1.41 1.41] Xhl=4.48
+New Transformer.Purohit phases=3 windings=2 buses=[Purohit, PurohitBus] conns=[wye wye] kvs=[11 0.415] kvas=[200 200] %Rs=[1.41 1.41] Xhl=4.48
+New Transformer.BHARDWAJ phases=3 windings=2 buses=[BHARDWAJ, BHARDWAJBus] conns=[wye wye] kvs=[11 0.415] kvas=[100 100] %Rs=[1.41 1.41] Xhl=4.48
+New Transformer.Mahalaxmi_Dev phases=3 windings=2 buses=[Mahalaxmi_Dev, Mahalaxmi_DevBus] conns=[wye wye] kvs=[11 0.415] kvas=[400 400] %Rs=[1.41 1.41] Xhl=4.48
+New Transformer.Kedar phases=3 windings=2 buses=[Kedar, KedarBus] conns=[wye wye] kvs=[11 0.415] kvas=[200 200] %Rs=[1.41 1.41] Xhl=4.48
+New Transformer.Dessai_Santoba phases=3 windings=2 buses=[Dessai_Santoba, Dessai_SantobaBus] conns=[wye wye] kvs=[11 0.415] kvas=[200 200] %Rs=[1.41 1.41] Xhl=4.48
+New Transformer.Rani_Construction phases=3 windings=2 buses=[Rani_Construction, Rani_ConstructionBus] conns=[wye wye] kvs=[11 0.415] kvas=[100 100] %Rs=[1.41 1.41] Xhl=4.48
+New Transformer.Maharudra phases=3 windings=2 buses=[Maharudra, MaharudraBus] conns=[wye wye] kvs=[11 0.415] kvas=[400 400] %Rs=[1.41 1.41] Xhl=4.48
+New Transformer.Ravinagar phases=3 windings=2 buses=[Ravinagar, RavinagarBus] conns=[wye wye] kvs=[11 0.415] kvas=[160 160] %Rs=[1.41 1.41] Xhl=4.48
+New Transformer.Friends_Colony phases=3 windings=2 buses=[Friends_Colony, Friends_ColonyBus] conns=[wye wye] kvs=[11 0.415] kvas=[100 100] %Rs=[1.41 1.41] Xhl=4.48
+New Transformer.Khadpabandh_Garden_II phases=3 windings=2 buses=[Khadpabandh_Garden_II, Khadpabandh_Garden_IIBus] conns=[wye wye] kvs=[11 0.415] kvas=[315 315] %Rs=[1.41 1.41] Xhl=4.48
+New Transformer.Khadpabandh_Garden_I phases=3 windings=2 buses=[Khadpabandh_Garden_I, Khadpabandh_Garden_IBus] conns=[wye wye] kvs=[11 0.415] kvas=[630 630] %Rs=[1.41 1.41] Xhl=4.48
+New Transformer.Sports_Complex phases=3 windings=2 buses=[Sports_Complex, Sports_ComplexBus] conns=[wye wye] kvs=[11 0.415] kvas=[200 200] %Rs=[1.41 1.41] Xhl=4.48
+New Transformer.Bhagwati_I phases=3 windings=2 buses=[Bhagwati_I, Bhagwati_IBus] conns=[wye wye] kvs=[11 0.415] kvas=[200 200] %Rs=[1.41 1.41] Xhl=4.48
+New Transformer.Bhagwati_II phases=3 windings=2 buses=[Bhagwati_II, Bhagwati_IIBus] conns=[wye wye] kvs=[11 0.415] kvas=[200 200] %Rs=[1.41 1.41] Xhl=4.48
+New Transformer.Sewerage_HTC phases=3 windings=2 buses=[Sewerage_HTC, Sewerage_HTCBus] conns=[wye wye] kvs=[11 0.415] kvas=[750 750] %Rs=[1.41 1.41] Xhl=4.48
+New Transformer.Sports_Complex_HTC phases=3 windings=2 buses=[Sports_Complex_HTC, Sports_Complex_HTCBus] conns=[wye wye] kvs=[11 0.415] kvas=[260 260] %Rs=[1.41 1.41] Xhl=4.48
+New Transformer.Sungrace_HTC phases=3 windings=2 buses=[Sungrace_HTC, Sungrace_HTCBus] conns=[wye wye] kvs=[11 0.415] kvas=[200 200] %Rs=[1.41 1.41] Xhl=4.48
+
+
+
+!LOADS
+New Load.Colony                bus1=ColonyBus                phases=3 conn=wye kv=0.415 kW=108     kvar=52.31
+New Load.Lotlikar_Naga_masjid  bus1=Lotlikar_Naga_masjidBus  phases=3 conn=wye kv=0.415 kW=144     kvar=69.74
+New Load.USMANIA               bus1=USMANIABus               phases=3 conn=wye kv=0.415 kW=72      kvar=34.87
+New Load.Varkhande             bus1=VarkhandeBus             phases=3 conn=wye kv=0.415 kW=100.8   kvar=48.82
+New Load.Vrudhavan_Garden      bus1=Vrudhavan_GardenBus      phases=3 conn=wye kv=0.415 kW=108     kvar=52.31
+New Load.Nagamasjid_new        bus1=Nagamasjid_newBus        phases=3 conn=wye kv=0.415 kW=72      kvar=34.87
+New Load.Angarki               bus1=AngarkiBus               phases=3 conn=wye kv=0.415 kW=144     kvar=69.74
+New Load.Ganganath             bus1=GanganathBus             phases=3 conn=wye kv=0.415 kW=144     kvar=69.74
+New Load.Heritage_I            bus1=HeritageIBus             phases=3 conn=wye kv=0.415 kW=216     kvar=104.61
+New Load.Heritage_II           bus1=HeritageIIBus            phases=3 conn=wye kv=0.415 kW=216     kvar=104.61
+New Load.Almeda                bus1=AlmedaBus                phases=3 conn=wye kv=0.415 kW=115.2   kvar=55.79
+New Load.Patil                 bus1=PatilBus                 phases=3 conn=wye kv=0.415 kW=126     kvar=61.02
+New Load.Purohit               bus1=PurohitBus               phases=3 conn=wye kv=0.415 kW=144     kvar=69.74
+New Load.BHARDWAJ              bus1=BHARDWAJBus              phases=3 conn=wye kv=0.415 kW=63      kvar=30.51
+New Load.Mahalaxmi_Dev         bus1=Mahalaxmi_DevBus         phases=3 conn=wye kv=0.415 kW=216     kvar=104.61
+New Load.Kedar                 bus1=KedarBus                 phases=3 conn=wye kv=0.415 kW=144     kvar=69.74
+New Load.Dessai_Santoba        bus1=Dessai_SantobaBus        phases=3 conn=wye kv=0.415 kW=90      kvar=43.59
+New Load.Rani_Construction     bus1=Rani_ConstructionBus     phases=3 conn=wye kv=0.415 kW=63      kvar=30.51
+New Load.Maharudra             bus1=MaharudraBus             phases=3 conn=wye kv=0.415 kW=216     kvar=104.61
+New Load.Ravinagar             bus1=RavinagarBus             phases=3 conn=wye kv=0.415 kW=115.2   kvar=55.79
+New Load.Friends_Colony        bus1=Friends_ColonyBus        phases=3 conn=wye kv=0.415 kW=72      kvar=34.87
+New Load.Khadpabandh_Garden_II bus1=Khadpabandh_Garden_IIBus phases=3 conn=wye kv=0.415 kW=113.4   kvar=54.92
+New Load.Khadpabandh_Garden_I  bus1=Khadpabandh_Garden_IBus  phases=3 conn=wye kv=0.415 kW=283.5   kvar=137.31
+New Load.Sports_Complex        bus1=Sports_ComplexBus        phases=3 conn=wye kv=0.415 kW=144     kvar=69.74
+New Load.Bhagwati_I            bus1=Bhagwati_IBus            phases=3 conn=wye kv=0.415 kW=144     kvar=69.74
+New Load.Bhagwati_II           bus1=Bhagwati_IIBus           phases=3 conn=wye kv=0.415 kW=144     kvar=69.74
+New Load.Sewerage_HTC          bus1=Sewerage_HTCBus          phases=3 conn=wye kv=0.415 kW=405     kvar=196.15
+New Load.Sports_Complex_HTC    bus1=Sports_Complex_HTCBus    phases=3 conn=wye kv=0.415 kW=163.8   kvar=79.33
+New Load.Sungrace_HTC          bus1=Sungrace_HTCBus          phases=3 conn=wye kv=0.415 kW=108     kvar=52.31
+
+
+!     VOLTAGE BASES         !
+!----------------------------!
+
+Set VoltageBases=[11, 0.415]
+CalcVoltageBases
+
+!----------------------------!
+!       ENERGY METER        !
+!----------------------------!
+
+New EnergyMeter.FeederMain Element=Line.S01 Terminal=1
+
+!----------------------------!
+!         SOLVE             !
+!----------------------------!
+
+Solve
+
+!----------------------------!
+!     EXPORT/REPORT DATA    !
+!----------------------------!
+
+Export Voltages
+Export Losses
+Export Meters
+Export Summary
+Export Capacity
+
+!----------------------------!
+!        PLOT PROFILE       !
+!----------------------------!
+
+Plot Profile Phases=All dots=y labels=y max=1.05 min=0.85

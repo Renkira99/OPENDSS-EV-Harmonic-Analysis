@@ -1,0 +1,156 @@
+Clear
+New Circuit.FarmagudiFeeder basekv=11 bus1=Substation pu=1.0
+
+Set Mode=Snapshot
+Set ControlMode=Off
+
+!----------------------------!
+!         LINE DATA         !
+!----------------------------!
+
+New Line.FF01 bus1=Substation          bus2=Haveli_Panchayat      phases=3 length=0.755 units=km r1=0.13 x1=0.0851
+New Line.FF02 bus1=Haveli_Panchayat    bus2=Military_HTC          phases=3 length=0.6   units=km r1=0.13 x1=0.0851
+New Line.FF03 bus1=Military_HTC        bus2=4W_Military_Gate      phases=3 length=1.18  units=km r1=0.13 x1=0.0851
+New Line.FF04 bus1=4W_Military_Gate    bus2=3W_Sports_Complex     phases=3 length=0.498 units=km r1=0.13 x1=0.0851
+New Line.FF05 bus1=4W_Military_Gate    bus2=3_Way_Maruti_Temple   phases=3 length=0.238 units=km r1=0.13 x1=0.0851
+New Line.FF06 bus1=4W_Military_Gate    bus2=Military_Gate         phases=3 length=0.02  units=km r1=0.13 x1=0.0851
+New Line.FF07 bus1=Military_Gate       bus2=3_Way_Safa_Masjid     phases=3 length=0.415 units=km r1=0.13 x1=0.0851
+New Line.FF08 bus1=3_Way_Safa_Masjid   bus2=RTO_Office_New        phases=3 length=0.18  units=km r1=0.13 x1=0.0851
+New Line.FF09 bus1=RTO_Office_New      bus2=Chirputem_School      phases=3 length=0.66  units=km r1=0.13 x1=0.0851
+New Line.FF10 bus1=Chirputem_School    bus2=2W_Kapat              phases=3 length=1.359 units=km r1=0.13 x1=0.0851
+New Line.FF11 bus1=3_Way_Safa_Masjid   bus2=Shapur                phases=3 length=0.21  units=km r1=0.13 x1=0.0851
+New Line.FF12 bus1=Shapur              bus2=3_Way_Ambegal         phases=3 length=0.215 units=km r1=0.13 x1=0.0851
+New Line.FF13 bus1=3_Way_Ambegal       bus2=4_Way_Ambegal         phases=3 length=0.15  units=km r1=0.13 x1=0.0851
+New Line.FF14 bus1=4_Way_Ambegal       bus2=Ambegal               phases=3 length=0.02  units=km r1=0.13 x1=0.0851
+New Line.FF15 bus1=Ambegal             bus2=Pattantali            phases=3 length=0.02  units=km r1=0.13 x1=0.0851
+New Line.FF16 bus1=Pattantali          bus2=Pankaj_Builders       phases=3 length=0.340 units=km r1=0.13 x1=0.0851
+New Line.FF17 bus1=Pankaj_Builders     bus2=Kashimath             phases=3 length=0.6   units=km r1=0.13 x1=0.0851
+New Line.FF18 bus1=Kashimath           bus2=3_Way_Kashimath       phases=3 length=0.07  units=km r1=0.13 x1=0.0851
+New Line.FF19 bus1=3_Way_Kashimath     bus2=2_Way_Nageshi         phases=3 length=0.07  units=km r1=0.13 x1=0.0851
+New Line.FF20 bus1=3_Way_Kashimath     bus2=GVMS                  phases=3 length=0.702 units=km r1=0.13 x1=0.0851
+New Line.FF21 bus1=GVMS                bus2=Sahakari              phases=3 length=0.31  units=km r1=0.13 x1=0.0851
+New Line.FF22 bus1=Sahakari            bus2=IMA                   phases=3 length=0.27  units=km r1=0.13 x1=0.0851
+New Line.FF23 bus1=IMA                 bus2=Shivnagari            phases=3 length=0.46  units=km r1=0.13 x1=0.0851
+New Line.FF24 bus1=Shivnagari          bus2=4_Way_PES             phases=3 length=0.26  units=km r1=0.13 x1=0.0851
+New Line.FF25 bus1=4_Way_PES           bus2=PES                   phases=3 length=0.33  units=km r1=0.13 x1=0.0851
+New Line.FF26 bus1=PES                 bus2=3_Way_Police_Outpost  phases=3 length=0.32  units=km r1=0.13 x1=0.0851
+New Line.FF27 bus1=3_Way_Police_Outpost bus2=Conem_I_Highway      phases=3 length=0.93  units=km r1=0.13 x1=0.0851
+New Line.FF28 bus1=3_Way_Police_Outpost bus2=2_Way_Conem_Highway  phases=3 length=1.46  units=km r1=0.13 x1=0.0851
+New Line.FF29 bus1=2_Way_Conem_Highway bus2=Conem_II              phases=3 length=0.22  units=km r1=0.13 x1=0.0851
+
+New Line.FF30 bus1=4_Way_PES           bus2=Ganesh_Temple         phases=3 length=0.16  units=km r1=0.13 x1=0.0851
+New Line.FF31 bus1=Ganesh_Temple       bus2=Nageshi               phases=3 length=0.763 units=km r1=0.13 x1=0.0851
+
+New Line.FF32 bus1=4_Way_PES           bus2=GTDC_Tourist          phases=3 length=0.04  units=km r1=0.13 x1=0.0851
+New Line.FF33 bus1=GTDC_Tourist        bus2=4_Way_Housingboard    phases=3 length=0.98  units=km r1=0.13 x1=0.0851
+
+New Line.FF34 bus1=4_Way_Housingboard  bus2=Saad_Phase_II         phases=3 length=0.03  units=km r1=0.13 x1=0.0851
+New Line.FF35 bus1=Saad_Phase_II       bus2=Sunrise_Cashew        phases=3 length=0.11  units=km r1=0.13 x1=0.0851
+New Line.FF36 bus1=Sunrise_Cashew      bus2=Saad_I                phases=3 length=0.27  units=km r1=0.13 x1=0.0851
+New Line.FF37 bus1=Saad_I              bus2=Saad_II               phases=3 length=0.05  units=km r1=0.13 x1=0.0851
+New Line.FF38 bus1=Saad_II             bus2=GEC_Bandora           phases=3 length=0.175 units=km r1=0.13 x1=0.0851
+New Line.FF39 bus1=GEC_Bandora         bus2=3_Way_Katamgal        phases=3 length=1.13  units=km r1=0.13 x1=0.0851
+New Line.FF40 bus1=3_Way_Katamgal      bus2=NIT_HTC               phases=3 length=0.31  units=km r1=0.13 x1=0.0851
+New Line.FF41 bus1=3_Way_Katamgal      bus2=Katamgal              phases=3 length=0.24  units=km r1=0.13 x1=0.0851
+New Line.FF42 bus1=NIT_HTC             bus2=ITI_HTC               phases=3 length=0.2   units=km r1=0.13 x1=0.0851
+
+New Line.FF43 bus1=4_Way_Housingboard  bus2=Housing_Board_New     phases=3 length=0.22  units=km r1=0.13 x1=0.0851
+New Line.FF44 bus1=Housing_Board_New   bus2=Housing_Board_I       phases=3 length=0.2   units=km r1=0.13 x1=0.0851
+New Line.FF45 bus1=Housing_Board_I     bus2=3_Way_Housingboard    phases=3 length=0.25  units=km r1=0.13 x1=0.0851
+New Line.FF46 bus1=3_Way_Housingboard  bus2=4_Way_Housingboard    phases=3 length=0.77  units=km r1=0.13 x1=0.0851
+
+!----------------------------!
+!        TRANSFORMERS       !
+!----------------------------!
+! Convention: secondary bus adds 'Bus1'
+
+New Transformer.T_Haveli_Panchayat     phases=3 windings=2 buses=[Haveli_Panchayat, Haveli_PanchayatBus1] conns=[wye wye] kvs=[11 0.415] kvas=[200 200] %Rs=[1.41 1.41] Xhl=4.7
+New Transformer.T_Shapur               phases=3 windings=2 buses=[Shapur, ShapurBus1] conns=[wye wye] kvs=[11 0.415] kvas=[200 200] %Rs=[1.41 1.41] Xhl=4.7
+New Transformer.T_Ambegal              phases=3 windings=2 buses=[Ambegal, AmbegalBus1] conns=[wye wye] kvs=[11 0.415] kvas=[400 400] %Rs=[1.41 1.41] Xhl=4.92
+New Transformer.T_Pattantali           phases=3 windings=2 buses=[Pattantali, PattantaliBus1] conns=[wye wye] kvs=[11 0.415] kvas=[200 200] %Rs=[1.41 1.41] Xhl=4.7
+New Transformer.T_Pankaj_Builders      phases=3 windings=2 buses=[Pankaj_Builders, Pankaj_BuildersBus1] conns=[wye wye] kvs=[11 0.415] kvas=[200 200] %Rs=[1.41 1.41] Xhl=4.7
+New Transformer.T_Kashimath            phases=3 windings=2 buses=[Kashimath, KashimathBus1] conns=[wye wye] kvs=[11 0.415] kvas=[100 100] %Rs=[1.41 1.41] Xhl=4.82
+New Transformer.T_GVMS                 phases=3 windings=2 buses=[GVMS, GVMSBus1] conns=[wye wye] kvs=[11 0.415] kvas=[100 100] %Rs=[1.41 1.41] Xhl=4.82
+New Transformer.T_Sahakari             phases=3 windings=2 buses=[Sahakari, SahakariBus1] conns=[wye wye] kvs=[11 0.415] kvas=[100 100] %Rs=[1.41 1.41] Xhl=4.82
+New Transformer.T_IMA                  phases=3 windings=2 buses=[IMA, IMABus1] conns=[wye wye] kvs=[11 0.415] kvas=[200 200] %Rs=[1.41 1.41] Xhl=4.7
+New Transformer.T_Shivnagari           phases=3 windings=2 buses=[Shivnagari, ShivnagariBus1] conns=[wye wye] kvs=[11 0.415] kvas=[200 200] %Rs=[1.41 1.41] Xhl=4.7
+New Transformer.T_Ganesh_Temple        phases=3 windings=2 buses=[Ganesh_Temple, Ganesh_TempleBus1] conns=[wye wye] kvs=[11 0.415] kvas=[200 200] %Rs=[1.41 1.41] Xhl=4.7
+New Transformer.T_GTDC_Tourist         phases=3 windings=2 buses=[GTDC_Tourist, GTDC_TouristBus1] conns=[wye wye] kvs=[11 0.415] kvas=[200 200] %Rs=[1.41 1.41] Xhl=4.7
+New Transformer.T_PES                  phases=3 windings=2 buses=[PES, PESBus1] conns=[wye wye] kvs=[11 0.415] kvas=[160 160] %Rs=[1.41 1.41] Xhl=4.85
+New Transformer.T_Sunrise_Cashew       phases=3 windings=2 buses=[Sunrise_Cashew, Sunrise_CashewBus1] conns=[wye wye] kvs=[11 0.415] kvas=[100 100] %Rs=[1.41 1.41] Xhl=4.82
+New Transformer.T_Housing_Board_New    phases=3 windings=2 buses=[Housing_Board_New, Housing_Board_NewBus1] conns=[wye wye] kvs=[11 0.415] kvas=[400 400] %Rs=[1.41 1.41] Xhl=4.92
+New Transformer.T_Housing_Board_I      phases=3 windings=2 buses=[Housing_Board_I, Housing_Board_IBus1] conns=[wye wye] kvs=[11 0.415] kvas=[200 200] %Rs=[1.41 1.41] Xhl=4.7
+New Transformer.T_Saad_Phase_II        phases=3 windings=2 buses=[Saad_Phase_II, Saad_Phase_IIBus1] conns=[wye wye] kvs=[11 0.415] kvas=[400 400] %Rs=[1.41 1.41] Xhl=4.92
+New Transformer.T_Saad_I               phases=3 windings=2 buses=[Saad_I, Saad_IBus1] conns=[wye wye] kvs=[11 0.415] kvas=[400 400] %Rs=[1.41 1.41] Xhl=4.92
+New Transformer.T_Saad_II              phases=3 windings=2 buses=[Saad_II, Saad_IIBus1] conns=[wye wye] kvs=[11 0.415] kvas=[400 400] %Rs=[1.41 1.41] Xhl=4.92
+New Transformer.T_Katamgal             phases=3 windings=2 buses=[Katamgal, KatamgalBus1] conns=[wye wye] kvs=[11 0.415] kvas=[100 100] %Rs=[1.41 1.41] Xhl=4.82
+New Transformer.T_Conem_II             phases=3 windings=2 buses=[Conem_II, Conem_IIBus1] conns=[wye wye] kvs=[11 0.415] kvas=[63 63] %Rs=[1.41 1.41] Xhl=4.8
+New Transformer.T_Conem_I_Highway      phases=3 windings=2 buses=[Conem_I_Highway, Conem_I_HighwayBus1] conns=[wye wye] kvs=[11 0.415] kvas=[63 63] %Rs=[1.41 1.41] Xhl=4.8
+New Transformer.T_NIT_HTC              phases=3 windings=2 buses=[NIT_HTC, NIT_HTCBus1] conns=[wye wye] kvs=[11 0.415] kvas=[300 300] %Rs=[1.41 1.41] Xhl=4.7
+New Transformer.T_ITI_HTC              phases=3 windings=2 buses=[ITI_HTC, ITI_HTCBus1] conns=[wye wye] kvs=[11 0.415] kvas=[100 100] %Rs=[1.41 1.41] Xhl=4.82
+New Transformer.T_Chirputem_School     phases=3 windings=2 buses=[Chirputem_School, Chirputem_SchoolBus1] conns=[wye wye] kvs=[11 0.415] kvas=[100 100] %Rs=[1.41 1.41] Xhl=4.82
+New Transformer.T_RTO_Office_New       phases=3 windings=2 buses=[RTO_Office_New, RTO_Office_NewBus1] conns=[wye wye] kvs=[11 0.415] kvas=[200 200] %Rs=[1.41 1.41] Xhl=4.7
+New Transformer.T_Ambegal_Branch       phases=3 windings=2 buses=[3_Way_Ambegal, 3_Way_AmbegalBus1] conns=[wye wye] kvs=[11 0.415] kvas=[200 200] %Rs=[1.41 1.41] Xhl=4.7
+New Transformer.T_Military_Gate        phases=3 windings=2 buses=[Military_Gate, Military_GateBus1] conns=[wye wye] kvs=[11 0.415] kvas=[200 200] %Rs=[1.41 1.41] Xhl=4.7
+
+!----------------------------!
+!            LOADS          !
+!----------------------------!
+New Load.Haveli_Panchayat        bus1=Haveli_PanchayatBus1        phases=3 conn=wye kv=0.415 kW=126    kvar=61.02
+New Load.Shapur                  bus1=ShapurBus1                  phases=3 conn=wye kv=0.415 kW=108    kvar=52.31
+New Load.Ambegal                 bus1=AmbegalBus1                 phases=3 conn=wye kv=0.415 kW=216    kvar=104.61
+New Load.Pattantali              bus1=PattantaliBus1              phases=3 conn=wye kv=0.415 kW=126    kvar=61.02
+New Load.Pankaj_Builders         bus1=Pankaj_BuildersBus1         phases=3 conn=wye kv=0.415 kW=108    kvar=52.31
+New Load.Kashimath               bus1=KashimathBus1               phases=3 conn=wye kv=0.415 kW=54     kvar=26.15
+New Load.GVMS                    bus1=GVMSBus1                    phases=3 conn=wye kv=0.415 kW=63     kvar=30.51
+New Load.Sahakari                bus1=SahakariBus1                phases=3 conn=wye kv=0.415 kW=54     kvar=26.15
+New Load.IMA                     bus1=IMABus1                     phases=3 conn=wye kv=0.415 kW=90     kvar=43.59
+New Load.Shivnagari              bus1=ShivnagariBus1              phases=3 conn=wye kv=0.415 kW=144    kvar=69.74
+New Load.Ganesh_Temple           bus1=Ganesh_TempleBus1           phases=3 conn=wye kv=0.415 kW=144    kvar=69.74
+New Load.GTDC_Tourist            bus1=GTDC_TouristBus1            phases=3 conn=wye kv=0.415 kW=72     kvar=34.87
+New Load.PES                     bus1=PESBus1                     phases=3 conn=wye kv=0.415 kW=115.2  kvar=55.79
+New Load.Sunrise_Cashew          bus1=Sunrise_CashewBus1          phases=3 conn=wye kv=0.415 kW=63     kvar=30.51
+New Load.Housing_Board_New       bus1=Housing_Board_NewBus1       phases=3 conn=wye kv=0.415 kW=180    kvar=87.18
+New Load.Housing_Board_I         bus1=Housing_Board_IBus1         phases=3 conn=wye kv=0.415 kW=108    kvar=52.31
+New Load.Saad_Phase_II           bus1=Saad_Phase_IIBus1           phases=3 conn=wye kv=0.415 kW=180    kvar=87.18
+New Load.Saad_I                  bus1=Saad_IBus1                  phases=3 conn=wye kv=0.415 kW=216    kvar=104.61
+New Load.Saad_II                 bus1=Saad_IIBus1                 phases=3 conn=wye kv=0.415 kW=216    kvar=104.61
+New Load.Katamgal                bus1=KatamgalBus1                phases=3 conn=wye kv=0.415 kW=54     kvar=26.15
+New Load.Conem_II                bus1=Conem_IIBus1                phases=3 conn=wye kv=0.415 kW=34.02  kvar=16.48
+New Load.Conem_I_Highway         bus1=Conem_I_HighwayBus1         phases=3 conn=wye kv=0.415 kW=34.02  kvar=16.48
+New Load.NIT_HTC                 bus1=NIT_HTCBus1                 phases=3 conn=wye kv=0.415 kW=108    kvar=52.31
+New Load.ITI_HTC                 bus1=ITI_HTCBus1                 phases=3 conn=wye kv=0.415 kW=54     kvar=26.15
+New Load.Chirputem_School        bus1=Chirputem_SchoolBus1        phases=3 conn=wye kv=0.415 kW=54     kvar=26.15
+New Load.RTO_Office_New          bus1=RTO_Office_NewBus1          phases=3 conn=wye kv=0.415 kW=108    kvar=52.31
+New Load.Military_Gate           bus1=Military_GateBus1           phases=3 conn=wye kv=0.415 kW=108    kvar=52.31
+New Load.Three_Way_Ambegal_Branch bus1=3_Way_AmbegalBus1          phases=3 conn=wye kv=0.415 kW=90     kvar=43.59  ! (Example placeholder if needed)
+
+!----------------------------!
+!        VOLTAGE BASES      !
+!----------------------------!
+Set VoltageBases=[11, 0.415]
+CalcVoltageBases
+
+!----------------------------!
+!        ENERGY METER       !
+!----------------------------!
+New EnergyMeter.FeederMain Element=Line.FF01 Terminal=1
+
+!----------------------------!
+!            SOLVE          !
+!----------------------------!
+Solve
+
+!----------------------------!
+!        EXPORT DATA        !
+!----------------------------!
+Export Voltages
+Export Losses
+Export Meters
+Export Summary
+Export Capacity
+
+!----------------------------!
+!         PLOT PROFILE      !
+!----------------------------!
+Plot Profile Phases=All dots=Y labels=Y max=1.05 min=0.85

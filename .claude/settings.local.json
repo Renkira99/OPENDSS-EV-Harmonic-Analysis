@@ -1,0 +1,10 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(python3 -c \"import sys; print\\(sys.executable\\)\")",
+      "Bash(/Users/overwatch/Documents/OPENDSS-main/.venv/bin/python -c \"import opendssdirect; import pandas; import numpy; import matplotlib; print\\(''All libs OK''\\)\")",
+      "Bash(.venv/bin/python scripts/EV_Harmonic_Analysis.py)",
+      "Bash(gh auth:*)"
+    ]
+  }
+}

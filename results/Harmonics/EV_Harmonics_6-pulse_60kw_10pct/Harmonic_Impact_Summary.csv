@@ -1,0 +1,14 @@
+Metric,Value
+Charger Topology,6-pulse
+Charger Rating (kW),60
+Number of EV Chargers,17
+Transformer Penetration (%),10
+Base Case - Max THD (%),0.0
+Base Case - Mean THD (%),0.0
+EV Case - Max THD (%),6.5468
+EV Case - Mean THD (%),0.5329
+EV Charger Buses - Max THD (%),6.5468
+EV Charger Buses - Mean THD (%),4.281
+Buses Exceeding IEEE 519 (Base),0
+Buses Exceeding IEEE 519 (EV),5
+IEEE 519 THD Limit (%),5.0
