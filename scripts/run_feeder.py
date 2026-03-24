@@ -23,6 +23,7 @@ Output structure:
     ├── Curti/
     ├── Farmagudi/
     ├── Ponda1/
+    ├── Undir/
     └── Combined/
 """
 
@@ -40,7 +41,7 @@ except ModuleNotFoundError as exc:
 # ============================================================
 # CONFIGURATION — choose which feeders to run
 # ============================================================
-# Options: "all", "Khadpabandh", "Curti", "Farmagudi", "Ponda1", "Combined"
+# Options: "all", "Khadpabandh", "Curti", "Farmagudi", "Ponda1", "Undir", "Combined"
 FEEDERS_TO_RUN = ["all"]
 
 
@@ -54,6 +55,7 @@ FEEDER_MAP = {
     "Curti":       os.path.join(_PROJECT_ROOT, "dss", "feeders", "Curti_Feeder.dss"),
     "Farmagudi":   os.path.join(_PROJECT_ROOT, "dss", "feeders", "Farmagudi_Feeder.dss"),
     "Ponda1":      os.path.join(_PROJECT_ROOT, "dss", "feeders", "Ponda1_Feeder.dss"),
+    "Undir":       os.path.join(_PROJECT_ROOT, "dss", "feeders", "Undir_Feeder.dss"),
     "Combined":    os.path.join(_PROJECT_ROOT, "dss", "combined_network.dss"),
 }
 

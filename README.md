@@ -13,7 +13,8 @@ OPENDSS-main/
 |       |-- Curti_Feeder.dss
 |       |-- Farmagudi_Feeder.dss
 |       |-- Khadpabandh_Feeder.dss
-|       `-- Ponda1_Feeder.dss
+|       |-- Ponda1_Feeder.dss
+|       `-- Undir_Feeder.dss
 |
 |-- scripts/
 |   |-- run_feeder.py
@@ -25,7 +26,8 @@ OPENDSS-main/
 |   |-- Curti/
 |   |-- Farmagudi/
 |   |-- Khadpabandh/
-|   `-- Ponda1/
+|   |-- Ponda1/
+|   `-- Undir/
 |
 |-- results/
 |   |-- Chargers/
@@ -37,12 +39,13 @@ OPENDSS-main/
 
 ## OpenDSS Model
 
-The core OpenDSS model represents the 33/11 kV substation and four 11 kV feeders:
+The core OpenDSS model represents the 33/11 kV substation and five 11 kV feeders:
 
 - Curti
 - Farmagudi
 - Khadpabandh
 - Ponda1
+- Undir
 
 Main model entry points:
 
@@ -81,7 +84,7 @@ Runs one, many, or all feeders and writes clean export files to `output/`.
 Configuration in script:
 
 - `FEEDERS_TO_RUN = ["all"]` to execute all registered feeders
-- or set explicit names, such as `FEEDERS_TO_RUN = ["Curti", "Combined"]`
+- or set explicit names, such as `FEEDERS_TO_RUN = ["Curti", "Undir", "Combined"]`
 
 ### `scripts/EV_Charger_Impact.py`
 
