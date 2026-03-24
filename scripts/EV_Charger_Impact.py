@@ -10,11 +10,19 @@ top of the script. The script runs a base case without EV chargers, then adds EV
 """
 import random
 import os
+import importlib
 from datetime import datetime
-import opendssdirect as dss
 import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
+
+try:
+    dss = importlib.import_module("opendssdirect")
+except ModuleNotFoundError as exc:
+    raise ModuleNotFoundError(
+        "OpenDSSDirect.py is not installed in the active environment. "
+        "Install it with: pip install OpenDSSDirect.py"
+    ) from exc
 
 
 # ============================================

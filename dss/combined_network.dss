@@ -892,17 +892,20 @@ Solve
 !================================================
 ! 8. EXPORT RESULTS
 !================================================
-Export Voltages
-Export Losses
-Export Meters
-Export Summary
-Export Capacity
-Export Currents
-Export Powers
+! NOTE: Export commands are commented out.
+! Use scripts/run_feeder.py to run this network and save outputs to output/Combined/<timestamp>/
+! To export manually from the OpenDSS UI, uncomment the lines below:
+!Export Voltages
+!Export Losses
+!Export Meters
+!Export Summary
+!Export Capacity
+!Export Currents
+!Export Powers
 
-! Plotting
-Plot Profile Phases=All dots=y labels=y max=1.05 min=0.85
-Plot Loadshape Object=Res_Goa_2025
-Plot Loadshape Object=Comm_Goa_2025
-Plot Monitor Object=Sub_PQ Channels=(1,3,5) Base=1
+! Plotting — uncomment to plot from OpenDSS UI:
+!Plot Profile Phases=All dots=y labels=y max=1.05 min=0.85
+!Plot Loadshape Object=Res_Goa_2025
+!Plot Loadshape Object=Comm_Goa_2025
+!Plot Monitor Object=Sub_PQ Channels=(1,3,5) Base=1
 	

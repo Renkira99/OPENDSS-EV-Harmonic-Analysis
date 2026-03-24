@@ -1,0 +1,17 @@
+Metric,Value
+Total Load Base (kW),7509.23113438955
+Total Load with EV (kW),7821.7910550896495
+Load Increase (kW),312.5599207000996
+Load Increase (%),4.162342523573269
+Total Losses Base (kW),112.36526038607545
+Total Losses with EV (kW),118.89803781241305
+Loss Increase (kW),6.532777426337603
+Loss Increase (%),5.813876463144973
+Min Voltage Base (p.u.),0.9620855822744083
+Min Voltage with EV (p.u.),0.9619399785893566
+Voltage Drop (p.u.),0.0001456036850516762
+Under-voltage Buses Base,0.0
+Under-voltage Buses with EV,0.0
+Number of EV Chargers,17.0
+EV Charger Rating (kW),60.0
+Total EV Load (kW),1020.0

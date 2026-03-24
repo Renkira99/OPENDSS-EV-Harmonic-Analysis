@@ -148,15 +148,17 @@ Solve
 !----------------------------!
 !     EXPORT/REPORT DATA    !
 !----------------------------!
-
-Export Voltages
-Export Losses
-Export Meters
-Export Summary
-Export Capacity
+! NOTE: Export commands are commented out.
+! Use scripts/run_feeder.py to run this feeder and save outputs to output/Khadpabandh/<timestamp>/
+! To export manually from the OpenDSS UI, uncomment the lines below:
+!Export Voltages
+!Export Losses
+!Export Meters
+!Export Summary
+!Export Capacity
 
 !----------------------------!
 !        PLOT PROFILE       !
 !----------------------------!
-
-Plot Profile Phases=All dots=y labels=y max=1.05 min=0.85
+! Uncomment below to plot voltage profile from OpenDSS UI:
+!Plot Profile Phases=All dots=y labels=y max=1.05 min=0.85
