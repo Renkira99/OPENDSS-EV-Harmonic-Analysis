@@ -1,11 +1,11 @@
 Clear
-New Circuit.KhadpabandhFeeder basekv=11 bus1=substation pu=1.0
+New Circuit.KhadpabandhFeeder basekv=11 bus1=Colony_SS pu=1.0
 
 set mode=Snapshot
 set ControlMode=Off
 
 !LINE CODE
-New Line.S01 bus1=substation bus2=3W_Colony phases=3 length=0.496 units=km r1=0.13 x1=0.0851
+New Line.S01 bus1=Colony_SS  bus2=3W_Colony phases=3 length=0.496 units=km r1=0.13 x1=0.0851
 New Line.L1 bus1=3W_Colony bus2=2W_Curti phases=3 length=0.054 units=km r1=0.13 x1=0.0851
 New Line.L2 bus1=3W_Colony bus2=Colony phases=3 length=0.076 units=km r1=0.13 x1=0.0851
 New Line.L3 bus1=Colony bus2=Lotlikar_Naga_masjid phases=3 length=0.495 units=km r1=0.13 x1=0.0851

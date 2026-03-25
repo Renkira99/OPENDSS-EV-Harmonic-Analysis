@@ -1,2 +1,2 @@
 DateTime, CaseName, Status, Mode, Number, LoadMult, NumDevices, NumBuses, NumNodes, Iterations, ControlMode, ControlIterations, MostIterationsDone, Year, Hour, MaxPuVoltage, MinPuVoltage, TotalMW, TotalMvar, MWLosses, pctLosses, MvarLosses, Frequency
-"25-3-26 00:51:02", UndirFeeder, SOLVED, Daily, 24,    1.000, 625, 432, 1296, 3, Static, 1, 3, 0, 48, 0.99726, 0.96206, 7.56698, 3.73701, 0.113408, 1.499, 0.126898, 60
+"25-3-26 11:00:53", Ponda_33_11kV, SOLVED, Daily, 24,    1.000, 627, 434, 1302, 3, Static, 1, 3, 0, 48, 0.99925, 0.95353, 7.57447, 3.73867, 0.120742, 1.594, 0.128469, 60

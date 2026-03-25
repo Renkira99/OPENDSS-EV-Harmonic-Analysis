@@ -1,2 +1,2 @@
 DateTime, CaseName, Status, Mode, Number, LoadMult, NumDevices, NumBuses, NumNodes, Iterations, ControlMode, ControlIterations, MostIterationsDone, Year, Hour, MaxPuVoltage, MinPuVoltage, TotalMW, TotalMvar, MWLosses, pctLosses, MvarLosses, Frequency
-"25-3-26 00:51:02", Ponda1Feeder, SOLVED, Snap, 1,    1.000, 135, 95, 285, 2, Off, 1, 2, 0, 0, 0.99784, 0.93464, 5.81653, 2.98131, 0.247026, 4.247, 0.283902, 60
+"25-3-26 11:00:53", Ponda1Feeder, SOLVED, Snap, 1,    1.000, 135, 95, 285, 2, Off, 1, 2, 0, 0, 0.99784, 0.93464, 5.81653, 2.98131, 0.247026, 4.247, 0.283902, 60

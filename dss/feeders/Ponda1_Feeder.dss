@@ -1,5 +1,5 @@
 Clear
-New Circuit.Ponda1Feeder basekv=11 bus1=Substation pu=1.0
+New Circuit.Ponda1Feeder basekv=11 bus1=Colony_SS pu=1.0
 
 Set Mode=Snapshot
 Set ControlMode=Off
@@ -8,7 +8,7 @@ Set ControlMode=Off
 !         LINE DATA         !
 !----------------------------!
 
-New Line.F01 bus1=Substation          bus2=Golden_Nest           phases=3 length=0.662  units=km r1=0.13 x1=0.0851
+New Line.F01 bus1=Colony_SS           bus2=Golden_Nest           phases=3 length=0.662  units=km r1=0.13 x1=0.0851
 New Line.F02 bus1=Golden_Nest         bus2=Ratnadeep_Apt         phases=3 length=0.29   units=km r1=0.13 x1=0.0851
 New Line.F03 bus1=Ratnadeep_Apt       bus2=Surekha_Parkar        phases=3 length=0.257  units=km r1=0.13 x1=0.0851
 New Line.F04 bus1=Surekha_Parkar      bus2=Nagzar                phases=3 length=0.309  units=km r1=0.13 x1=0.0851

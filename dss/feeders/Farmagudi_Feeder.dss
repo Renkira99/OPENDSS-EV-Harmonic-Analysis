@@ -1,5 +1,5 @@
 Clear
-New Circuit.FarmagudiFeeder basekv=11 bus1=Substation pu=1.0
+New Circuit.FarmagudiFeeder basekv=11 bus1=ControlRoom_SS pu=1.0
 
 Set Mode=Snapshot
 Set ControlMode=Off
@@ -8,7 +8,7 @@ Set ControlMode=Off
 !         LINE DATA         !
 !----------------------------!
 
-New Line.FF01 bus1=Substation          bus2=Haveli_Panchayat      phases=3 length=0.755 units=km r1=0.13 x1=0.0851
+New Line.FF01 bus1=ControlRoom_SS      bus2=Haveli_Panchayat      phases=3 length=0.755 units=km r1=0.13 x1=0.0851
 New Line.FF02 bus1=Haveli_Panchayat    bus2=Military_HTC          phases=3 length=0.6   units=km r1=0.13 x1=0.0851
 New Line.FF03 bus1=Military_HTC        bus2=4W_Military_Gate      phases=3 length=1.18  units=km r1=0.13 x1=0.0851
 New Line.FF04 bus1=4W_Military_Gate    bus2=3W_Sports_Complex     phases=3 length=0.498 units=km r1=0.13 x1=0.0851

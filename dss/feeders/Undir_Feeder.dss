@@ -3,7 +3,7 @@ Clear
 !================================================
 ! 1. CIRCUIT & SETUP
 !================================================
-New Circuit.UndirFeeder basekv=11 bus1=Substation pu=1.0
+New Circuit.UndirFeeder basekv=11 bus1=Madkai_SS pu=1.0
 
 ! Residential Loadshape: Goa 2025 (96 points) - DEFINED ON SINGLE LINES TO PREVENT ERRORS
 New Loadshape.Res_Goa_2025 npts=96 interval=0.25 mult=[0.35 0.32 0.30 0.28 0.28 0.28 0.30 0.35 0.45 0.60 0.75 0.85 0.80 0.70 0.60 0.50 0.45 0.40 0.35 0.35 0.35 0.35 0.38 0.40 0.40 0.42 0.45 0.45 0.45 0.45 0.42 0.40 0.40 0.40 0.40 0.40 0.42 0.45 0.45 0.48 0.50 0.50 0.52 0.52 0.50 0.48 0.48 0.50 0.55 0.60 0.65 0.70 0.72 0.75 0.78 0.80 0.85 0.90 0.95 0.98 1.00 0.98 0.96 0.95 0.94 0.92 0.90 0.88 0.85 0.82 0.80 0.78 0.75 0.72 0.70 0.68 0.65 0.62 0.60 0.58 0.55 0.52 0.50 0.48 0.45 0.42 0.40 0.38 0.38 0.36 0.36 0.35 0.35 0.35 0.35 0.35]
@@ -19,8 +19,8 @@ New Linecode.ACSR_Conductor nphases=3 r1=0.13 x1=0.0851 units=km
 !================================================
 ! (Paste the rest of your Line and Transformer definitions here...)
 ! === MAIN FEEDER TRUNKS ===
-New Line.M01 bus1=Substation       bus2=3_Way_Kharwada    phases=3 length=1.77  units=km linecode=ACSR_Conductor
-New Line.M02 bus1=Substation       bus2=Konar_Gaunem_DTC  phases=3 length=1.0   units=km linecode=ACSR_Conductor
+New Line.M01 bus1=Madkai_SS        bus2=3_Way_Kharwada    phases=3 length=1.77  units=km linecode=ACSR_Conductor
+New Line.M02 bus1=Madkai_SS        bus2=Konar_Gaunem_DTC  phases=3 length=1.0   units=km linecode=ACSR_Conductor
 
 ! === FEEDER 1 BRANCHES ===
 New Line.L1  bus1=3_Way_Kharwada   bus2=Ram_Mandir        phases=3 length=0.482 units=km linecode=ACSR_Conductor

@@ -4,12 +4,13 @@
 - `docs/resources/Network_Diagram.pdf` — Kavale (Undir/Karanzal) SLD
 - `docs/resources/Curti-Farmagudi_Presentation.pdf` — Curti, Ponda-I, Khadpabandh, Farmagudi SLDs + DTC tables
 - `docs/resources/Feeder_Status_Kavale.xlsx` — Undir, Karanzal, Durbhat Express feeder data
+- `docs/resources/Transformers_Survery - Transformers_Actual.csv` — Physical field survey of Kavale (Durbhat/Undir) DTCs: nameplate kVA, vector group, measured losses (**primary source for Section 7**)
 
 ---
 
 ## A. Topology Errors
 
-### 1. Two Different Substations Merged Into One Source Bus (CRITICAL)
+### 1.✅ Two Different Substations Merged Into One Source Bus (CRITICAL) [Fixed]
 
 The SLDs show at least two distinct physical substations:
 
@@ -38,41 +39,37 @@ The SLDs show that the Khadpabandh and Farmagudi feeders share physical junction
 
 ---
 
-### 3. Ambegal_II Connected to Wrong Bus — Farmagudi Feeder
+### 3. ✅ Ambegal_II Connected to Wrong Bus — Farmagudi Feeder [NO ERROR, LLM ERROR]
 
-The Farmagudi SLD (Page 2) shows Ambegal Suresh (`Ambegal_II`) branching directly from **3W Ambegal**:
+The SLD (confirmed from physical diagram) shows the trunk as:
 
 ```
-SLD:    3W Ambegal ──0.505──► Ambegal_II
-                   ──0.150──► 4W Ambegal ──0.02──► Ambegal
+Shapur ──0.215──► [junction] ──► 3W Ambegal (transformer) ──0.150──► 4W Ambegal ──0.02──► Ambegal
+                                                                            │
+                                                               0.505 / 0.510 (two circuits)
+                                                                            ▼
+                                                                     Ambegal Suresh
 ```
 
-The DSS (line FF47) connects it from the wrong junction:
-```dss
-! WRONG:
-FF47: bus1=4_Way_Ambegal  bus2=Ambegal_II  length=0.510
-
-! CORRECT:
-FF47: bus1=3_Way_Ambegal  bus2=Ambegal_II  length=0.510
-```
+Both upward lines (0.505 and 0.510) to Ambegal Suresh originate from the **4W Ambegal** node. The DSS line `FF47: bus1=4_Way_Ambegal bus2=Ambegal_II length=0.510` is **correct**. 3W Ambegal is a transformer sitting on the trunk, not a junction point for Ambegal Suresh. No fix required.
 
 ---
 
-### 4. Tarangan_I / Rajmudra_I Order Reversed — Ponda-I Feeder
+### 4. ✅ Tarangan_I / Rajmudra_I Order Reversed — Ponda-I Feeder [NO ERROR, LLM ERROR]
 
-The Ponda-I SLD (Page 2) shows the sequence along the main trunk as:
-
-```
-SLD:  Mamlatdar → Raj Mudra I → Tarangan → PWD → Raj Mudra II
-```
-
-The DSS has them swapped (lines F40–F42):
+The Ponda-I SLD shows the sequence along the main trunk as:
 
 ```
-DSS:  Mamladtdar → Tarangan_I → Rajmudra_I → PWD → Rajmudra_II
+SLD:  3W Tisk ──0.2──► Mamlatdar ──0.2──► Tarangan ──0.2──► Raj mudra I ──0.118──► PWD ──► Raj mudra II ──► ...
 ```
 
-**Fix:** Swap `Tarangan_I` and `Rajmudra_I` in lines F40 and F41.
+The DSS (lines F40–F42) matches this order exactly:
+
+```
+DSS:  Mamlatdar → Tarangan_I → Rajmudra_I → PWD → Rajmudra_II
+```
+
+No fix required. The original LLM claim that the SLD shows Raj Mudra I before Tarangan was incorrect — the SLD shows Tarangan first.
 
 ---
 
@@ -93,7 +90,7 @@ The SLDs confirm the following ring mains are intentional. However, Indian 11kV 
 
 ---
 
-### 6. Duplicate Parallel Lines F16 and F17 — Ponda-I Feeder
+### 6.👍 Duplicate Parallel Lines F16 and F17 — Ponda-I Feeder [FIXED]
 
 Lines F16 and F17 (DSS lines 297–298) are **identical**:
 
@@ -110,50 +107,38 @@ The Ponda-I SLD shows only one connection between these nodes. This is a copy-pa
 
 ## B. Transformer Rating Errors
 
-### 7. Kavale Feeder Transformers — Blanket 200 kVA (CRITICAL)
+### 7. ✅ Kavale Feeder Transformers — kVA Mismatches (FIXED)
 
-Every transformer in **Batch 1** (DSS lines 111–150) and **Batch 2** (DSS lines 153–170) is set to `kVA=200` regardless of actual DTC capacity from the Feeder_Status_Kavale.xlsx. Actual ratings range from 63 kVA to 630 kVA.
+**Status:** 5 confirmed kVA mismatches have been corrected in the DSS. 5 unverifiable transformers remain at default 200 kVA (physical access not possible).
 
-#### Durbhat Express / Undir Feeder Mismatches
+Field survey (`Transformers_Survery - Transformers_Actual.csv`) found:
+- **48 of 53 accessible** transformers correctly rated at 200 kVA ✓
+- **5 confirmed mismatches** — corrected per table below
+- **5 unverifiable** — location/nameplate access denied; default 200 kVA retained
 
-| DTC | DSS kVA | Actual kVA (Excel) | Error |
+#### Corrected kVA Ratings (DSS updated)
+
+| DTC | Feeder | Previous (DSS) | Corrected to | %LoadLoss | %NoLoadLoss |
+|---|---|---|---|---|---|
+| Rajendra Talak | Durbhat | 200 | **630** | 0.728% | 0.113% |
+| Perigol | Durbhat | 200 | **400** | 0.742% | 0.121% |
+| Ritesh Developers | Durbhat | 200 | **400** | 0.742% | 0.121% |
+| Shantadurga | Durbhat | 200 | **400** | 0.742% | 0.121% |
+| Kharwada | Undir | 200 | **100** | 1.567% | 0.083% |
+
+#### Unverifiable — Retained at 200 kVA (Default Survey Values)
+
+| DTC | Feeder | DSS kVA | Survey status |
 |---|---|---|---|
-| Rajendra Talak | 200 | **630** | 3.15× under-rated |
-| Ritesh Developers | 200 | **400** | 2× under-rated |
-| Dempo HTC | 200 | **275** | 1.4× under-rated |
-| Venkatesh Leela | 200 | **63** | 3.2× over-rated |
-| RB Engineers | 200 | **63** | 3.2× over-rated |
-| Vamneshwar | 200 | **63** | 3.2× over-rated |
-| Dhumre | 200 | **160** | 1.25× over-rated |
-| Galshire | 200 | **160** | 1.25× over-rated |
-| Perigol | 200 | **160** | 1.25× over-rated |
-| Sewerage HTC | 200 | **145** | 1.4× over-rated |
-| Ram Mandir | 200 | **100** | 2× over-rated |
-| Kharwada | 200 | **100** | 2× over-rated |
-| MuleBhat | 200 | **100** | 2× over-rated |
-| Maruti Temple | 200 | **100** | 2× over-rated |
-| Undir Bakale | 200 | **100** | 2× over-rated |
-| Manmohan Singh | 200 | **100** | 2× over-rated |
-| Matruchaya | 200 | **100** | 2× over-rated |
-| Paunwada | 200 | **100** | 2× over-rated |
-| Kaswada | 200 | **100** | 2× over-rated |
-| Ritesh | 200 | **100** | 2× over-rated |
+| Shashikala Pai | Durbhat | 200 | Location Inaccessible |
+| Sanatan-I | Durbhat | 200 | Transformer Inaccessible |
+| Sanatan-II | Durbhat | 200 | Transformer Inaccessible |
+| Dempo HTC | Undir | 200 | Location Inaccessible |
+| Old Shantadurga | Undir | 200 | Nameplate Damaged |
 
-#### Karanzal Feeder Mismatches
+#### Karanzal Branch — All Verified Correct ✓
 
-| DTC | DSS kVA | Actual kVA (Excel) | Error |
-|---|---|---|---|
-| Pearl | 200 | **63** | 3.2× over-rated |
-| Mogru | 200 | **160** | 1.25× over-rated |
-| Konar Gaunem | 200 | **100** | 2× over-rated |
-| MG School | 200 | **100** | 2× over-rated |
-| Shigumomand | 200 | **100** | 2× over-rated |
-| Kunal | 200 | **100** | 2× over-rated |
-| Vagdor | 200 | **100** | 2× over-rated |
-| KashimathGround | 200 | **100** | 2× over-rated |
-| Sneh Mandir | 200 | **100** | 2× over-rated |
-
-> **Note:** Transformer impedance in per-unit scales with kVA rating. Using a wrong rating distorts voltage drop, loss calculation, and overload detection. A 63 kVA transformer modeled as 200 kVA shows ~1/3 the actual voltage drop and will never flag overloading.
+All 9 Karanzal branch DTCs (Pearl, Mogru, MG School, Shigumomand, Kunal, Vagdor, KashimathGround, Sneh Mandir, Konar Gaunem) survey at 200 kVA. No errors found.
 
 > **Note:** The Curti, Ponda-I, Khadpabandh, and Farmagudi transformer ratings are **correct** — they match their respective DTC tables in the PDF.
 
@@ -164,6 +149,8 @@ Every transformer in **Batch 1** (DSS lines 111–150) and **Batch 2** (DSS line
 All transformers from DSS line 242 onward use `conns=[wye wye]`.
 
 Indian 11kV/0.415kV distribution transformers are **Dyn11 (Delta primary, Star secondary)** per IS 2026 and CEA regulations. The Kavale batch (lines 111–170) correctly uses `conns=[delta wye]`.
+
+The field survey independently confirms this: every physically accessible Kavale DTC (53 transformers across Durbhat and Undir feeders) has a nameplate vector group of Dyn-11 or Dy-11, with no exceptions.
 
 A wye-wye connection:
 - Lacks the delta winding needed to suppress triplen harmonics
@@ -187,15 +174,15 @@ The following transformers exist in the model but have **no load** connected to 
 | Tolulem | 135 | Excel | ~140 kW (200 kVA × 70%) |
 | Kharwada | 136 | Excel | ~50 kW (100 kVA × 50%) |
 | Shashikala_Pai | 145 | Excel | ~120 kW (200 kVA × 60%) |
-| Venkatesh_Leela | 141 | Excel | ~38 kW (63 kVA × 60%) |
+| Venkatesh_Leela | 141 | Survey | ~120 kW (200 kVA × 60%) |
 | Golden_Properties | 149 | Excel | ~110 kW (200 kVA × 55%) |
-| Ritesh | 150 | Excel | ~55 kW (100 kVA × 55%) |
-| T_Mogru | 166 | Excel | ~80 kW (160 kVA × 50%) |
-| T_Vagdor | 161 | Excel | ~65 kW (100 kVA × 65%) |
-| T_KashimathGround | 156 | Excel | ~50 kW (100 kVA × 50%) |
+| Ritesh | 150 | Survey | ~110 kW (200 kVA × 55%) |
+| T_Mogru | 166 | Survey | ~100 kW (200 kVA × 50%) |
+| T_Vagdor | 161 | Survey | ~130 kW (200 kVA × 65%) |
+| T_KashimathGround | 156 | Survey | ~100 kW (200 kVA × 50%) |
 | Agarwal_gardens (T3) | 244 | Curti SLD | ~144 kW (200 kVA × 72%) |
 
-**Total missing load: ~1,170 kW** — underestimates Kavale feeder loading significantly.
+**Total missing load: ~1,430 kW** — underestimates Kavale feeder loading significantly. (Revised upward from ~1,170 kW after correcting kVA assumptions for Venkatesh_Leela, Ritesh, Mogru, Vagdor, and KashimathGround using survey data.)
 
 ---
 
@@ -214,9 +201,26 @@ Issues:
 - Copper losses are ~**2.8× higher** in the second group vs the first, without physical justification.
 - Iron/core losses are **completely absent** for ~80 transformers in the second group.
 
-**Fix:** Standardize to `%LoadLoss` + `%NoLoadLoss` for all transformers, using values from the respective DTC tables.
+The field survey measured loss data for Kavale DTCs and confirms the Kavale batch parameters are physically grounded. Measured values by rating class:
+
+| Rating | Survey %R (%LoadLoss) | Survey %NLL (%NoLoadLoss) | Cu Loss (W) | Iron Loss (W) |
+|---|---|---|---|---|
+| 100 kVA | **1.567%** | **0.083%** | 1,567 | 83 |
+| 200 kVA | **1.013%** | **0.137%** | 2,027 | 273 |
+| 400 kVA | **0.742%** | **0.121%** | 2,967 | 483 |
+| 630 kVA | **0.728%** | **0.113%** | 4,587 | 713 |
+
+The 200 kVA values (1.013%, 0.137%) match the existing Kavale batch parameters exactly. The 5 mis-rated DTCs in Section 7 have been updated to use the appropriate loss values per their corrected kVA rating:
+- **630 kVA** (Rajendra Talak): 0.728% / 0.113%
+- **400 kVA** (Perigol, Ritesh Developers, Shantadurga): 0.742% / 0.121%
+- **100 kVA** (Kharwada): 1.567% / 0.083%
+
+For non-Kavale feeders (Curti, Ponda-I, Khadpabandh, Farmagudi), the issue remains unresolved: `%LoadLoss ~2.82%` and `%NoLoadLoss=0%` differ from physical survey values.
+
+**Fix (non-Kavale):** Update Curti/Ponda/Khadpabandh/Farmagudi transformer loss parameters to match their respective DTC survey tables.
 
 ---
+
 
 ### 11. Linecode Named "ACSR_Conductor" — Misnomer
 
@@ -237,12 +241,11 @@ The Feeder_Status_Kavale.xlsx and PDF section tables explicitly state **"XLPE 3C
 
 | # | Error | Severity | Impact on results |
 |---|---|---|---|
-| 7 | Kavale transformer kVA all set to 200 | **Critical** | Wrong voltage drops, losses, overload detection for 29+ DTCs |
 | 1 | Two substations merged into one | **Critical** | Wrong source impedance; Madkai S/S and Colony SS modeled as identical |
 | 2 | Bus naming disconnects Military Gate / Sports Complex | **Critical** | Khadpabandh–Farmagudi interconnection physically broken |
 | 5 | All ring mains closed (no N.O. switches) | **High** | Non-physical circular power flows in all feeders |
 | 9 | ~12 transformers with no load | **High** | ~1,170 kW of real load absent from model |
-| 3 | Ambegal_II on wrong bus (Farmagudi) | **High** | Branch topology incorrect; node has wrong impedance path |
+| 3 | ~~Ambegal_II on wrong bus (Farmagudi)~~ | ~~High~~ | **FALSE POSITIVE** — DSS is correct per SLD |
 | 4 | Tarangan/Rajmudra order reversed (Ponda-I) | **High** | Node voltage profile incorrect along trunk |
 | 8 | Wye-wye transformer connections | **Medium** | Incorrect harmonic and unbalanced load behaviour |
 | 10 | Inconsistent loss parameters (2.82% vs 1.01%) | **Medium** | 3× difference in copper losses between feeder groups |

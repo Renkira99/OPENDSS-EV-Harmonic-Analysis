@@ -1,28 +1,18 @@
 Clear
 
-!================================================
-! 1. CIRCUIT & SETUP
-!================================================
-New Circuit.UndirFeeder basekv=11 bus1=Substation pu=1.0
+New Circuit.Ponda_33_11kV basekv=11 bus1=Madkai_SS pu=1.0
 
-! RESIDENTIAL: "Double Peak" Pattern (Morning Geysers/Cooking + Evening AC/Lighting)
-! 12 AM to 11 PM
+! Residential loadshape (double peak)
 New Loadshape.Res_Goa_2025 npts=24 interval=1.0 mult=[0.35 0.30 0.28 0.28 0.30 0.35 0.60 0.80 0.70 0.55 0.50 0.45 0.45 0.48 0.50 0.55 0.65 0.75 0.90 1.00 0.95 0.85 0.65 0.45]
 
-! COMMERCIAL: "Daytime Bell Curve" (Offices/Shops open 9 AM - 6 PM)
-! 12 AM to 11 PM
+! Commercial loadshape (daytime bell curve)
 New Loadshape.Comm_Goa_2025 npts=24 interval=1.0 mult=[0.10 0.10 0.10 0.10 0.10 0.10 0.15 0.25 0.60 0.85 0.95 0.98 1.00 0.98 0.95 0.90 0.80 0.60 0.40 0.25 0.20 0.15 0.10 0.10]
 
-! Define Line Codes
 New Linecode.ACSR_Conductor nphases=3 r1=0.13 x1=0.0851 units=km
 
-!================================================
-! 2. LINE DEFINITIONS (TOPOLOGY)
-!================================================
-! (Paste the rest of your Line and Transformer definitions here...)
 ! === MAIN FEEDER TRUNKS ===
-New Line.M01 bus1=Substation       bus2=3_Way_Kharwada    phases=3 length=1.77  units=km linecode=ACSR_Conductor
-New Line.M02 bus1=Substation       bus2=Konar_Gaunem_DTC  phases=3 length=1.0   units=km linecode=ACSR_Conductor
+New Line.M01 bus1=Madkai_SS        bus2=3_Way_Kharwada    phases=3 length=1.77  units=km linecode=ACSR_Conductor
+New Line.M02 bus1=Madkai_SS        bus2=Konar_Gaunem_DTC  phases=3 length=1.0   units=km linecode=ACSR_Conductor
 
 ! === FEEDER 1 BRANCHES ===
 New Line.LU1  bus1=3_Way_Kharwada   bus2=Ram_Mandir        phases=3 length=0.482 units=km linecode=ACSR_Conductor
@@ -104,10 +94,6 @@ New Line.LU69 bus1=Bandora_Panchayat_RMU bus2=KashimathGround_DTC phases=3 lengt
 New Line.LU70 bus1=Bandora_Panchayat_RMU bus2=Rainguinim   phases=3 length=0.324 units=km linecode=ACSR_Conductor
 New Line.LU73 bus1=3_Way_Harish_Bar bus2=3_Way_Sneh_Mandir phases=3 length=0.295 units=km linecode=ACSR_Conductor
 
-!================================================
-! 3. TRANSFORMER DEFINITIONS
-!================================================
-
 New Transformer.Ram_Mandir        phases=3 windings=2 buses=[Ram_Mandir Ram_MandirBus1] conns=[delta wye] kvs=[11 0.415] kVA=200 %LoadLoss=1.0133 Xhl=4.3844 %NoLoadLoss=0.13667
 New Transformer.Dempo_DTC         phases=3 windings=2 buses=[Dempo_DTC Dempo_DTCBus1] conns=[delta wye] kvs=[11 0.415] kVA=200 %LoadLoss=1.0133 Xhl=4.3844 %NoLoadLoss=0.13667
 New Transformer.RB_Engg           phases=3 windings=2 buses=[RB_Engg RB_EnggBus1] conns=[delta wye] kvs=[11 0.415] kVA=200 %LoadLoss=1.0133 Xhl=4.3844 %NoLoadLoss=0.13667
@@ -133,13 +119,13 @@ New Transformer.Ramnathi_Devasthan phases=3 windings=2 buses=[Ramnathi_Devasthan
 New Transformer.Ramnathi          phases=3 windings=2 buses=[Ramnathi RamnathiBus1] conns=[delta wye] kvs=[11 0.415] kVA=200 %LoadLoss=1.0133 Xhl=4.3844 %NoLoadLoss=0.13667
 New Transformer.RPRS_School       phases=3 windings=2 buses=[RPRS_School RPRS_SchoolBus1] conns=[delta wye] kvs=[11 0.415] kVA=200 %LoadLoss=1.0133 Xhl=4.3844 %NoLoadLoss=0.13667
 New Transformer.Tolulem           phases=3 windings=2 buses=[Tolulem TolulemBus1] conns=[delta wye] kvs=[11 0.415] kVA=200 %LoadLoss=1.0133 Xhl=4.4972 %NoLoadLoss=0.13667
-New Transformer.Kharwada          phases=3 windings=2 buses=[Kharwada KharwadaBus1] conns=[delta wye] kvs=[11 0.415] kVA=200 %LoadLoss=1.0133 Xhl=4.3844 %NoLoadLoss=0.13667
-New Transformer.Shantadurga_New   phases=3 windings=2 buses=[Shantadurga_New Shantadurga_NewBus1] conns=[delta wye] kvs=[11 0.415] kVA=200 %LoadLoss=0.7416 Xhl=4.4384 %NoLoadLoss=0.12083
+New Transformer.Kharwada          phases=3 windings=2 buses=[Kharwada KharwadaBus1] conns=[delta wye] kvs=[11 0.415] kVA=100 %LoadLoss=1.5667 Xhl=4.3844 %NoLoadLoss=0.08333
+New Transformer.Shantadurga_New   phases=3 windings=2 buses=[Shantadurga_New Shantadurga_NewBus1] conns=[delta wye] kvs=[11 0.415] kVA=400 %LoadLoss=0.7416 Xhl=4.4384 %NoLoadLoss=0.12083
 New Transformer.Galshire          phases=3 windings=2 buses=[Galshire GalshireBus1] conns=[delta wye] kvs=[11 0.415] kVA=200 %LoadLoss=1.0133 Xhl=4.3844 %NoLoadLoss=0.13667
-New Transformer.Rajendra_Talak    phases=3 windings=2 buses=[Rajendra_Talak Rajendra_TalakBus1] conns=[delta wye] kvs=[11 0.415] kVA=200 %LoadLoss=0.72804 Xhl=4.3190 %NoLoadLoss=0.11322
-New Transformer.Ritesh_Developers phases=3 windings=2 buses=[Ritesh_Developers Ritesh_DevelopersBus1] conns=[delta wye] kvs=[11 0.415] kVA=200 %LoadLoss=0.7416 Xhl=4.3844 %NoLoadLoss=0.1208
+New Transformer.Rajendra_Talak    phases=3 windings=2 buses=[Rajendra_Talak Rajendra_TalakBus1] conns=[delta wye] kvs=[11 0.415] kVA=630 %LoadLoss=0.72804 Xhl=4.3190 %NoLoadLoss=0.11322
+New Transformer.Ritesh_Developers phases=3 windings=2 buses=[Ritesh_Developers Ritesh_DevelopersBus1] conns=[delta wye] kvs=[11 0.415] kVA=400 %LoadLoss=0.7416 Xhl=4.3844 %NoLoadLoss=0.1208
 New Transformer.Venkatesh_Leela   phases=3 windings=2 buses=[Venkatesh_Leela Venkatesh_LeelaBus1] conns=[delta wye] kvs=[11 0.415] kVA=200 %LoadLoss=1.0133 Xhl=4.1788 %NoLoadLoss=0.13667
-New Transformer.Perigol           phases=3 windings=2 buses=[Perigol PerigolBus1] conns=[delta wye] kvs=[11 0.415] kVA=200 %LoadLoss=0.7416 Xhl=4.3844 %NoLoadLoss=0.12083
+New Transformer.Perigol           phases=3 windings=2 buses=[Perigol PerigolBus1] conns=[delta wye] kvs=[11 0.415] kVA=400 %LoadLoss=0.7416 Xhl=4.3844 %NoLoadLoss=0.12083
 New Transformer.Manmohan_Singh    phases=3 windings=2 buses=[Manmohan_Singh Manmohan_SinghBus1] conns=[delta wye] kvs=[11 0.415] kVA=200 %LoadLoss=1.0133 Xhl=3.9211 %NoLoadLoss=0.13667
 New Transformer.Dhumre            phases=3 windings=2 buses=[Dhumre DhumreBus1] conns=[delta wye] kvs=[11 0.415] kVA=200 %LoadLoss=1.0133 Xhl=4.3844 %NoLoadLoss=0.13667
 New Transformer.Shashikala_Pai    phases=3 windings=2 buses=[Shashikala_Pai Shashikala_PaiBus1] conns=[delta wye] kvs=[11 0.415] kVA=200 %LoadLoss=1.0133 Xhl=4.3844 %NoLoadLoss=0.13667
@@ -176,6 +162,9 @@ New Transformer.T_Shigumomand      phases=3 windings=2 buses=[Shigumomand_DTC, S
 
 
 
+! Source: 33/11kV Colony SS (Curti), feeding Curti/Ponda-I/Khadpabandh
+New Vsource.ColonySS basekv=11 bus1=Colony_SS pu=1.0 MVAsc3=250 MVAsc1=210 
+
 !....................................................!
 !     CURTI FEEDERS
 !....................................................!
@@ -185,7 +174,7 @@ New Transformer.T_Shigumomand      phases=3 windings=2 buses=[Shigumomand_DTC, S
 !         LINE DATA         !
 !----------------------------!
 
-New Line.S01 bus1=Substation bus2=3_way_goa_dairy_1 phases=3 length=0.27 units=km r1=0.13 x1=0.0851
+New Line.S01 bus1=Colony_SS  bus2=3_way_goa_dairy_1 phases=3 length=0.27 units=km r1=0.13 x1=0.0851
 New Line.L1  bus1=3_way_goa_dairy_1 bus2=forensic phases=3 length=0.25 units=km r1=0.13 x1=0.0851
 New Line.L2  bus1=forensic bus2=Dada_vaidya phases=3 length=0.26 units=km r1=0.13 x1=0.0851
 New Line.L3  bus1=Dada_vaidya bus2=3_Way_Dada_vaidya phases=3 length=0.02 units=km r1=0.13 x1=0.0851
@@ -278,7 +267,7 @@ New Transformer.T23 phases=3 windings=2 buses=[Pisgal, PisgalBus23] conns=[wye w
 !----------------------------!
 
 
-New Line.F01 bus1=Substation          bus2=Golden_Nest           phases=3 length=0.662  units=km r1=0.13 x1=0.0851
+New Line.F01 bus1=Colony_SS           bus2=Golden_Nest           phases=3 length=0.662  units=km r1=0.13 x1=0.0851
 New Line.F02 bus1=Golden_Nest         bus2=Ratnadeep_Apt       phases=3 length=0.29 units=km r1=0.13 x1=0.0851
 New Line.F03 bus1=Ratnadeep_Apt        bus2=Surekha_Parkar       phases=3 length=0.257 units=km r1=0.13 x1=0.0851
 New Line.F04 bus1=Surekha_Parkar       bus2=Nagzar       phases=3 length=0.309 units=km r1=0.13 x1=0.0851
@@ -295,7 +284,6 @@ New Line.F14 bus1=3_Way_Verekar_2  bus2=Panditwada   phases=3 length=0.5 units=k
 
 New Line.F15 bus1=Bandodkar    bus2=3_Way_Bagaytdar   phases=3 length=0.02 units=km r1=0.13 x1=0.0851
 New Line.F16 bus1=3_Way_Bagaytdar  bus2=Kaziwada  phases=3 length=0.135 units=km r1=0.13 x1=0.0851
-New Line.F17 bus1=3_Way_Bagaytdar  bus2=Kaziwada  phases=3 length=0.135 units=km r1=0.13 x1=0.0851
 New Line.F18 bus1=Kaziwada bus2=Twin_Tower phases=3 length=0.15 units=km r1=0.13 x1=0.0851
 New Line.F19 bus1=Twin_Tower bus2=Hotel_Menino phases=3 length=0.16 units=km r1=0.13 x1=0.0851
 New Line.F20 bus1=Hotel_Menino bus2=3W_Canara phases=3 length=0.135 units=km r1=0.13 x1=0.0851
@@ -435,7 +423,7 @@ New Transformer.T62 phases=3 windings=2 buses=[Twin_Tower, Twin_TowerBus] conns=
 !----------------------------!
 
 
-New Line.KF01        bus1=Substation        bus2=3W_Colony         phases=3 length=0.496 units=km r1=0.13 x1=0.0851
+New Line.KF01        bus1=Colony_SS         bus2=3W_Colony         phases=3 length=0.496 units=km r1=0.13 x1=0.0851
 New Line.KF02      bus1=3W_Colony         bus2=2W_Curti          phases=3 length=0.054 units=km r1=0.13 x1=0.0851
 New Line.KF03       bus1=3W_Colony         bus2=Colony            phases=3 length=0.076 units=km r1=0.13 x1=0.0851
 New Line.KF04        bus1=Colony            bus2=Naga_Masjid_New   phases=3 length=0.495 units=km r1=0.13 x1=0.0851
@@ -538,6 +526,12 @@ New Transformer.T91 phases=3 windings=2 buses=[Sungrace_HTC, Sungrace_HTCBus] co
 
 
 
+!====================================================
+! SOURCE: 33/11kV Control Room SS (Farmagudi)
+! Feeds: Farmagudi feeder
+!====================================================
+New Vsource.ControlRoomSS basekv=11 bus1=ControlRoom_SS pu=1.0 MVAsc3=250 MVAsc1=210
+
 !....................................................!
 !     FARMAGUDI   FEEDERS
 !....................................................!
@@ -547,7 +541,7 @@ New Transformer.T91 phases=3 windings=2 buses=[Sungrace_HTC, Sungrace_HTCBus] co
 !----------------------------!
 
 
-New Line.FF01     bus1=Substation              bus2=Haveli_Panchayat          phases=3 length=0.755  units=km r1=0.13 x1=0.0851
+New Line.FF01     bus1=ControlRoom_SS          bus2=Haveli_Panchayat          phases=3 length=0.755  units=km r1=0.13 x1=0.0851
 New Line.FF02     bus1=Haveli_Panchayat               bus2=Military_HTC              phases=3 length=0.6    units=km r1=0.13 x1=0.0851
 New Line.FF03     bus1=Military_HTC              bus2=4W_Military_Gate          phases=3 length=1.18   units=km r1=0.13 x1=0.0851
 New Line.FF04     bus1=4W_Military_Gate          bus2=3W_Sports_Complex         phases=3 length=0.498  units=km r1=0.13 x1=0.0851
