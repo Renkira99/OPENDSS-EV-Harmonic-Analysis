@@ -1,0 +1,165 @@
+{
+  "baseline": {
+    "converged": true,
+    "summary": {
+      "MaxPuVoltage": 0.9984,
+      "MinPuVoltage": 0.95426,
+      "MWLosses": 0.134466,
+      "pctLosses": 3.09,
+      "TotalMW": 4.35186,
+      "TotalMvar": 2.20751
+    },
+    "lv_min_pu": 0.95426,
+    "lv_below_090_count": 0,
+    "line_overload_count": 0,
+    "line_losses_W": 24309.20277870737,
+    "transformer_losses_W": 110156.46149999998,
+    "total_losses_W": 134465.66427870738,
+    "transformer_loss_share_pct": 81.92162816500007,
+    "faultstudy_phase_Isc_A": [
+      104959.34431142894,
+      104959.34431033797,
+      104959.34431250932
+    ],
+    "faultstudy_avg_Isc_A": 104959.3443114254,
+    "export_dir": "/var/folders/fj/wt7gt7zn4k9d3c861gnqrqym0000gn/T/curti_doc_baseline"
+  },
+  "current": {
+    "converged": true,
+    "summary": {
+      "MaxPuVoltage": 0.9922,
+      "MinPuVoltage": 0.95595,
+      "MWLosses": 0.065979,
+      "pctLosses": 1.54,
+      "TotalMW": 4.28338,
+      "TotalMvar": 2.10451
+    },
+    "lv_min_pu": 0.95595,
+    "lv_below_090_count": 0,
+    "line_overload_count": 0,
+    "line_losses_W": 27356.970564750332,
+    "transformer_losses_W": 38622.0207,
+    "total_losses_W": 65978.99126475034,
+    "transformer_loss_share_pct": 58.53684628948555,
+    "faultstudy_phase_Isc_A": [
+      20981.99109387285,
+      20981.991097300164,
+      20981.991093767705
+    ],
+    "faultstudy_avg_Isc_A": 20981.99109498024,
+    "export_dir": "/var/folders/fj/wt7gt7zn4k9d3c861gnqrqym0000gn/T/curti_doc_current"
+  },
+  "expected_Isc_from_MVAsc3_400_A": 20994.555243259118,
+  "transformer_table": [
+    {
+      "kva": 100,
+      "p50_w": 435.0,
+      "p100_w": 1350.0,
+      "pcu_w": 1220.0,
+      "pcore_w": 130.0,
+      "loadloss_pct": 1.22,
+      "noloadloss_pct": 0.13
+    },
+    {
+      "kva": 160,
+      "p50_w": 570.0,
+      "p100_w": 1700.0,
+      "pcu_w": 1506.6666666666667,
+      "pcore_w": 193.33333333333326,
+      "loadloss_pct": 0.9416666666666668,
+      "noloadloss_pct": 0.12083333333333328
+    },
+    {
+      "kva": 200,
+      "p50_w": 780.0,
+      "p100_w": 2300.0,
+      "pcu_w": 2026.6666666666667,
+      "pcore_w": 273.33333333333326,
+      "loadloss_pct": 1.0133333333333334,
+      "noloadloss_pct": 0.13666666666666663
+    },
+    {
+      "kva": 400,
+      "p50_w": 1300.0,
+      "p100_w": 3330.0,
+      "pcu_w": 2706.6666666666665,
+      "pcore_w": 623.3333333333335,
+      "loadloss_pct": 0.6766666666666665,
+      "noloadloss_pct": 0.15583333333333338
+    },
+    {
+      "kva": 500,
+      "p50_w": 1510.0,
+      "p100_w": 4100.0,
+      "pcu_w": 3453.3333333333335,
+      "pcore_w": 646.6666666666665,
+      "loadloss_pct": 0.6906666666666668,
+      "noloadloss_pct": 0.1293333333333333
+    },
+    {
+      "kva": 1000,
+      "p50_w": 2770.0,
+      "p100_w": 7700.0,
+      "pcu_w": 6573.333333333333,
+      "pcore_w": 1126.666666666667,
+      "loadloss_pct": 0.6573333333333332,
+      "noloadloss_pct": 0.1126666666666667
+    },
+    {
+      "kva": 1250,
+      "p50_w": 3300.0,
+      "p100_w": 9200.0,
+      "pcu_w": 7866.666666666667,
+      "pcore_w": 1333.333333333333,
+      "loadloss_pct": 0.6293333333333334,
+      "noloadloss_pct": 0.10666666666666665
+    }
+  ],
+  "linecode_groups": {
+    "IS7098_240SQ_TRUNK": [
+      "L1",
+      "L2",
+      "L3",
+      "L4",
+      "L5",
+      "L19",
+      "L29",
+      "L32",
+      "S01"
+    ],
+    "IS7098_35SQ_SMALL": [
+      "L6",
+      "L7",
+      "L8",
+      "L9",
+      "L11",
+      "L13",
+      "L14",
+      "L15",
+      "L16",
+      "L17",
+      "L18",
+      "L21",
+      "L22",
+      "L23",
+      "L25",
+      "L26",
+      "L27",
+      "L28",
+      "L33",
+      "L36"
+    ],
+    "XLPE_95SQ_LATERAL": [
+      "L10"
+    ],
+    "IS7098_95SQ_MEDIUM": [
+      "L12",
+      "L20",
+      "L24",
+      "L30",
+      "L31",
+      "L34",
+      "L37"
+    ]
+  }
+}

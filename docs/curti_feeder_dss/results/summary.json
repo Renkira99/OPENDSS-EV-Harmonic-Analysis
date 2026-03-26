@@ -1,0 +1,42 @@
+{
+  "source_definition": "New Circuit.Curti_Feeder basekv=11 bus1=Colony_SS pu=1.0 MVAsc3=400",
+  "baseline": {
+    "converged": true,
+    "MaxPuVoltage": 0.9984,
+    "MinPuVoltage": 0.95426,
+    "TotalMW": 4.35186,
+    "TotalMvar": 2.20751,
+    "MWLosses": 0.134466,
+    "pctLosses": 3.09,
+    "lv_min_pu": 0.95426,
+    "lv_below_090_count": 0,
+    "line_overload_count": 0,
+    "line_losses_W": 24309.20277870737,
+    "transformer_losses_W": 110156.46149999998,
+    "total_losses_W": 134465.66427870738,
+    "transformer_loss_share_pct": 81.92162816500007,
+    "faultstudy_Isc_A_ph1": 104959.34431142894,
+    "faultstudy_Isc_A_ph2": 104959.34431033797,
+    "faultstudy_Isc_A_ph3": 104959.34431250932
+  },
+  "updated": {
+    "converged": true,
+    "MaxPuVoltage": 0.9922,
+    "MinPuVoltage": 0.95595,
+    "TotalMW": 4.28338,
+    "TotalMvar": 2.10451,
+    "MWLosses": 0.065979,
+    "pctLosses": 1.54,
+    "lv_min_pu": 0.95595,
+    "lv_below_090_count": 0,
+    "line_overload_count": 0,
+    "line_losses_W": 27356.970564750332,
+    "transformer_losses_W": 38622.0207,
+    "total_losses_W": 65978.99126475034,
+    "transformer_loss_share_pct": 58.53684628948555,
+    "faultstudy_Isc_A_ph1": 20981.99109387285,
+    "faultstudy_Isc_A_ph2": 20981.991097300164,
+    "faultstudy_Isc_A_ph3": 20981.991093767705
+  },
+  "expected_fault_Isc_A_from_MVAsc3_400": 20994.555243259118
+}

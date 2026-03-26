@@ -1,0 +1,23 @@
+{
+  "IS7098_240SQ_TRUNK": {
+    "type": "Trunk (240 sq mm)",
+    "r1_ohm_per_km": 0.125,
+    "x1_ohm_per_km": 0.088,
+    "c1_nF_per_km": 340.0,
+    "normamps": 300.0
+  },
+  "IS7098_95SQ_MEDIUM": {
+    "type": "Medium Tap (95 sq mm)",
+    "r1_ohm_per_km": 0.32,
+    "x1_ohm_per_km": 0.1,
+    "c1_nF_per_km": 250.0,
+    "normamps": 180.0
+  },
+  "IS7098_35SQ_SMALL": {
+    "type": "Small Tap (35 sq mm)",
+    "r1_ohm_per_km": 0.868,
+    "x1_ohm_per_km": 0.115,
+    "c1_nF_per_km": 180.0,
+    "normamps": 100.0
+  }
+}

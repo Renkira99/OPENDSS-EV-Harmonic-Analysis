@@ -1,86 +1,93 @@
 Clear
-New Circuit.Curti_Feeder basekv=11 bus1=Colony_SS pu=1.0
+New Circuit.Curti_Feeder basekv=11 bus1=Colony_SS pu=1.0 MVAsc3=400
 
 Set Mode=Snapshot
 Set ControlMode=Off
+
+! IS 7098 11kV 3C AL XLPE linecodes (hardcoded user standards)
+New Linecode.IS7098_240SQ_TRUNK nphases=3 units=km r1=0.125 x1=0.088 r0=0.125 x0=0.088 c1=340 c0=340 normamps=300 emergamps=360
+New Linecode.IS7098_95SQ_MEDIUM nphases=3 units=km r1=0.320 x1=0.100 r0=0.320 x0=0.100 c1=250 c0=250 normamps=180 emergamps=216
+New Linecode.IS7098_35SQ_SMALL nphases=3 units=km r1=0.868 x1=0.115 r0=0.868 x0=0.115 c1=180 c0=180 normamps=100 emergamps=120
+
+! Linecodes normalized to km and ~90C conductor resistance basis
 
 !----------------------------!
 !         LINE DATA         !
 !----------------------------!
 
-New Line.S01 bus1=Colony_SS  bus2=3_way_goa_dairy_1 phases=3 length=0.27 units=km r1=0.13 x1=0.0851
-New Line.L1  bus1=3_way_goa_dairy_1 bus2=forensic phases=3 length=0.25 units=km r1=0.13 x1=0.0851
-New Line.L2  bus1=forensic bus2=Dada_vaidya phases=3 length=0.26 units=km r1=0.13 x1=0.0851
-New Line.L3  bus1=Dada_vaidya bus2=3_Way_Dada_vaidya phases=3 length=0.02 units=km r1=0.13 x1=0.0851
-New Line.L4  bus1=Kayji_Garden bus2=Fiberglass phases=3 length=0.26 units=km r1=0.13 x1=0.0851
-New Line.L5  bus1=Fiberglass bus2=4_Way_saiservice phases=3 length=0.1 units=km r1=0.13 x1=0.0851
-New Line.L6  bus1=Agarwal_htc bus2=Yummy_icecream phases=3 length=0.18 units=km r1=0.13 x1=0.0851
-New Line.L7  bus1=Yummy_icecream bus2=Shivlal phases=3 length=0.11 units=km r1=0.13 x1=0.0851
-New Line.L8  bus1=Shivlal bus2=Kelbai phases=3 length=0.85 units=km r1=0.13 x1=0.0851
-New Line.L9  bus1=Kelbai bus2=3_Way_Doctor phases=3 length=0.47 units=km r1=0.13 x1=0.0851   
-New Line.L10  bus1=3_Way_Doctor bus2=Surya_masala phases=3 length=0.1 units=km r1=0.13 x1=0.0851   !0.47 to 0.1
-New Line.L11  bus1=Surya_masala bus2=Pisgal phases=3 length=0.4 units=km r1=0.13 x1=0.0851
-New Line.L12  bus1=3_way_goa_dairy_1 bus2=3_Way_GoaDairy2 phases=3 length=0.02 units=km r1=0.13 x1=0.0851
-New Line.L13  bus1=3_Way_GoaDairy2 bus2=Dairy_HTC phases=3 length=0.23 units=km r1=0.13 x1=0.0851
-New Line.L14  bus1=3_Way_GoaDairy2 bus2=Dairy_Old phases=3 length=0.23 units=km r1=0.13 x1=0.0851
-New Line.L15  bus1=Dairy_Old bus2=3_Way_Microwave phases=3 length=0.88 units=km r1=0.13 x1=0.0851
-New Line.L16  bus1=3_Way_Microwave bus2=Microwave phases=3 length=0.02 units=km r1=0.13 x1=0.0851
-New Line.L17  bus1=3_Way_Microwave bus2=3_way_Verekar phases=3 length=0.495 units=km r1=0.13 x1=0.0851
-New Line.L18  bus1=3_Way_verekar bus2=3_way_sahakari phases=3 length=0.166 units=km r1=0.13 x1=0.0851
+New Line.S01 bus1=Colony_SS bus2=3_way_goa_dairy_1 phases=3 length=0.27 units=km linecode=IS7098_240SQ_TRUNK
+New Line.L1 bus1=3_way_goa_dairy_1 bus2=forensic phases=3 length=0.25 units=km linecode=IS7098_240SQ_TRUNK
+New Line.L2 bus1=forensic bus2=Dada_vaidya phases=3 length=0.26 units=km linecode=IS7098_240SQ_TRUNK
+New Line.L3 bus1=Dada_vaidya bus2=3_Way_Dada_vaidya phases=3 length=0.02 units=km linecode=IS7098_240SQ_TRUNK
+New Line.L4 bus1=Kayji_Garden bus2=Fiberglass phases=3 length=0.26 units=km linecode=IS7098_240SQ_TRUNK
+New Line.L5 bus1=Fiberglass bus2=4_Way_saiservice phases=3 length=0.1 units=km linecode=IS7098_240SQ_TRUNK
+New Line.L6 bus1=Agarwal_htc bus2=Yummy_icecream phases=3 length=0.18 units=km linecode=IS7098_35SQ_SMALL
+New Line.L7 bus1=Yummy_icecream bus2=Shivlal phases=3 length=0.11 units=km linecode=IS7098_35SQ_SMALL
+New Line.L8 bus1=Shivlal bus2=Kelbai phases=3 length=0.85 units=km linecode=IS7098_35SQ_SMALL
+New Line.L9 bus1=Kelbai bus2=3_Way_Doctor phases=3 length=0.47 units=km linecode=IS7098_35SQ_SMALL
+New Line.L10 bus1=3_Way_Doctor bus2=Surya_masala phases=3 length=0.1 units=km linecode=IS7098_35SQ_SMALL !0.47 to 0.1 linecode=XLPE_95SQ_LATERAL
+New Line.L11 bus1=Surya_masala bus2=Pisgal phases=3 length=0.4 units=km linecode=IS7098_35SQ_SMALL
+New Line.L12 bus1=3_way_goa_dairy_1 bus2=3_Way_GoaDairy2 phases=3 length=0.02 units=km linecode=IS7098_95SQ_MEDIUM
+New Line.L13 bus1=3_Way_GoaDairy2 bus2=Dairy_HTC phases=3 length=0.23 units=km linecode=IS7098_35SQ_SMALL
+New Line.L14 bus1=3_Way_GoaDairy2 bus2=Dairy_Old phases=3 length=0.23 units=km linecode=IS7098_35SQ_SMALL
+New Line.L15 bus1=Dairy_Old bus2=3_Way_Microwave phases=3 length=0.88 units=km linecode=IS7098_35SQ_SMALL
+New Line.L16 bus1=3_Way_Microwave bus2=Microwave phases=3 length=0.02 units=km linecode=IS7098_35SQ_SMALL
+New Line.L17 bus1=3_Way_Microwave bus2=3_way_Verekar phases=3 length=0.495 units=km linecode=IS7098_35SQ_SMALL
+New Line.L18 bus1=3_Way_verekar bus2=3_way_sahakari phases=3 length=0.166 units=km linecode=IS7098_35SQ_SMALL
 
-New Line.L19  bus1=4_Way_saiservice bus2=ECAP_HTC phases=3 length=0.18 units=km r1=0.13 x1=0.0851
-New Line.L20  bus1=ECAP_HTC bus2=Prakash phases=3 length=0.025 units=km r1=0.13 x1=0.0851
-New Line.L21  bus1=Prakash bus2=Kayji_Skyline phases=3 length=0.12 units=km r1=0.13 x1=0.0851
-New Line.L22  bus1=Kayji_Skyline bus2=Rudra_Developer phases=3 length=0.17 units=km r1=0.13 x1=0.0851
-New Line.L23  bus1=Rudra_Developer bus2=3_Way_khadpabandh phases=3 length=0.06 units=km r1=0.13 x1=0.0851
+New Line.L19 bus1=4_Way_saiservice bus2=ECAP_HTC phases=3 length=0.18 units=km linecode=IS7098_240SQ_TRUNK
+New Line.L20 bus1=ECAP_HTC bus2=Prakash phases=3 length=0.025 units=km linecode=IS7098_95SQ_MEDIUM
+New Line.L21 bus1=Prakash bus2=Kayji_Skyline phases=3 length=0.12 units=km linecode=IS7098_35SQ_SMALL
+New Line.L22 bus1=Kayji_Skyline bus2=Rudra_Developer phases=3 length=0.17 units=km linecode=IS7098_35SQ_SMALL
+New Line.L23 bus1=Rudra_Developer bus2=3_Way_khadpabandh phases=3 length=0.06 units=km linecode=IS7098_35SQ_SMALL
 
-New Line.L24  bus1=4_Way_saiservice bus2=Associate phases=3 length=0.67 units=km r1=0.13 x1=0.0851
-New Line.L25  bus1=Associate bus2=KV_School phases=3 length=0.16 units=km r1=0.13 x1=0.0851
-New Line.L26  bus1=KV_School bus2=Korde phases=3 length=0.56 units=km r1=0.13 x1=0.0851
-New Line.L27  bus1=Korde bus2=Kapat_Factory phases=3 length=0.85 units=km r1=0.13 x1=0.0851
-New Line.L28  bus1=Kapat_Factory bus2=2_Way_ConemI phases=3 length=1.23 units=km r1=0.13 x1=0.0851
+New Line.L24 bus1=4_Way_saiservice bus2=Associate phases=3 length=0.67 units=km linecode=IS7098_95SQ_MEDIUM
+New Line.L25 bus1=Associate bus2=KV_School phases=3 length=0.16 units=km linecode=IS7098_35SQ_SMALL
+New Line.L26 bus1=KV_School bus2=Korde phases=3 length=0.56 units=km linecode=IS7098_35SQ_SMALL
+New Line.L27 bus1=Korde bus2=Kapat_Factory phases=3 length=0.85 units=km linecode=IS7098_35SQ_SMALL
+New Line.L28 bus1=Kapat_Factory bus2=2_Way_ConemI phases=3 length=1.23 units=km linecode=IS7098_35SQ_SMALL
 
-New Line.L29  bus1=3_Way_Dada_vaidya bus2=Kayji_Garden phases=3 length=0.39 units=km r1=0.13 x1=0.0851
-New Line.L30  bus1=3_Way_Dada_vaidya bus2=3_Way_Copperwada_2 phases=3 length=0.855 units=km r1=0.13 x1=0.0851
-New Line.L31  bus1=3_Way_Copperwada_2 bus2=3_Way_Copperwada_1 phases=3 length=0.305 units=km r1=0.13 x1=0.0851
-New Line.L32  bus1=4_Way_saiservice bus2=Agarwal_htc phases=3 length=0.14 units=km r1=0.13 x1=0.0851
-New Line.L33  bus1=3_Way_Doctor bus2=Doctor_bakale phases=3 length=0.47 units=km r1=0.13 x1=0.0851
-New Line.L34  bus1=Doctor_bakale bus2=3_Way_Copperwada_1 phases=3 length=1.32 units=km r1=0.13 x1=0.0851
-New Line.L36  bus1=3_Way_verekar bus2=4_Way_verekar phases=3 length=0.4 units=km r1=0.13 x1=0.0851
-New Line.L37  bus1=4_Way_verekar bus2=3_Way_Copperwada_1 phases=3 length=0.88 units=km r1=0.13 x1=0.0851
+New Line.L29 bus1=3_Way_Dada_vaidya bus2=Kayji_Garden phases=3 length=0.39 units=km linecode=IS7098_240SQ_TRUNK
+New Line.L30 bus1=3_Way_Dada_vaidya bus2=3_Way_Copperwada_2 phases=3 length=0.855 units=km linecode=IS7098_95SQ_MEDIUM
+New Line.L31 bus1=3_Way_Copperwada_2 bus2=3_Way_Copperwada_1 phases=3 length=0.305 units=km linecode=IS7098_95SQ_MEDIUM
+New Line.L32 bus1=4_Way_saiservice bus2=Agarwal_htc phases=3 length=0.14 units=km linecode=IS7098_240SQ_TRUNK
+New Line.L33 bus1=3_Way_Doctor bus2=Doctor_bakale phases=3 length=0.47 units=km linecode=IS7098_35SQ_SMALL
+New Line.L34 bus1=Doctor_bakale bus2=3_Way_Copperwada_1 phases=3 length=1.32 units=km linecode=IS7098_95SQ_MEDIUM
+New Line.L36 bus1=3_Way_verekar bus2=4_Way_verekar phases=3 length=0.4 units=km linecode=IS7098_35SQ_SMALL
+New Line.L37 bus1=4_Way_verekar bus2=3_Way_Copperwada_1 phases=3 length=0.88 units=km linecode=IS7098_95SQ_MEDIUM
 !----------------------------!
 !       TRANSFORMERS        !
 !----------------------------!
 
 
 
-New Transformer.T1 phases=3 windings=2 buses=[forensic, forensicBus1] conns=[delta wye] kvs=[11 0.415] kvas=[200 200] %Rs=[1.41 1.41] Xhl=3.760000
-New Transformer.T2 phases=3 windings=2 buses=[Dada_vaidya, Dada_vaidyaBus2] conns=[delta wye] kvs=[11 0.415] kvas=[100 100] %Rs=[1.41 1.41] Xhl=3.908964
-New Transformer.T3 phases=3 windings=2 buses=[Kayji_Garden, Kayji_GardenBus3] conns=[delta wye] kvs=[11 0.415] kvas=[200 200] %Rs=[1.41 1.41] Xhl=3.760000
-New Transformer.T4 phases=3 windings=2 buses=[Fiberglass, FiberglassBus4] conns=[delta wye] kvs=[11 0.415] kvas=[100 100] %Rs=[1.41 1.41] Xhl=3.908964
-New Transformer.T5 phases=3 windings=2 buses=[Agarwal_htc, Agarwal_htcBus5] conns=[delta wye] kvs=[11 0.415] kvas=[1250 1250] %Rs=[1.41 1.41] Xhl=3.884276
-New Transformer.T6 phases=3 windings=2 buses=[Yummy_icecream, Yummy_icecreamBus6] conns=[delta wye] kvs=[11 0.415] kvas=[100 100] %Rs=[1.41 1.41] Xhl=3.908964
-New Transformer.T7 phases=3 windings=2 buses=[Shivlal, ShivlalBus7] conns=[delta wye] kvs=[11 0.415] kvas=[200 200] %Rs=[1.41 1.41] Xhl=3.760000
-New Transformer.T8 phases=3 windings=2 buses=[Kelbai, KelbaiBus8] conns=[delta wye] kvs=[11 0.415] kvas=[100 100] %Rs=[1.41 1.41] Xhl=3.908964
-New Transformer.T9 phases=3 windings=2 buses=[Surya_masala, Surya_masalaBus9] conns=[delta wye] kvs=[11 0.415] kvas=[200 200] %Rs=[1.41 1.41] Xhl=3.760000
-New Transformer.T10 phases=3 windings=2 buses=[Doctor_bakale, Doctor_bakaleBus10] conns=[delta wye] kvs=[11 0.415] kvas=[160 160] %Rs=[1.41 1.41] Xhl=3.945897
+New Transformer.T1 phases=3 windings=2 buses=[forensic, forensicBus1] conns=[delta wye] kvs=[11 0.415] kvas=[200 200] %LoadLoss=1.013 %NoLoadLoss=0.137 Xhl=4.589461
+New Transformer.T2 phases=3 windings=2 buses=[Dada_vaidya, Dada_vaidyaBus2] conns=[delta wye] kvs=[11 0.415] kvas=[100 100] %LoadLoss=1.220 %NoLoadLoss=0.130 Xhl=4.663046
+New Transformer.T3 phases=3 windings=2 buses=[Kayji_Garden, Kayji_GardenBus3] conns=[delta wye] kvs=[11 0.415] kvas=[200 200] %LoadLoss=1.013 %NoLoadLoss=0.137 Xhl=4.589461
+New Transformer.T4 phases=3 windings=2 buses=[Fiberglass, FiberglassBus4] conns=[delta wye] kvs=[11 0.415] kvas=[100 100] %LoadLoss=1.220 %NoLoadLoss=0.130 Xhl=4.663046
+New Transformer.T5 phases=3 windings=2 buses=[Agarwal_htc, Agarwal_htcBus5] conns=[delta wye] kvs=[11 0.415] kvas=[1250 1250] %LoadLoss=0.629 %NoLoadLoss=0.107 Xhl=4.758565
+New Transformer.T6 phases=3 windings=2 buses=[Yummy_icecream, Yummy_icecreamBus6] conns=[delta wye] kvs=[11 0.415] kvas=[100 100] %LoadLoss=1.220 %NoLoadLoss=0.130 Xhl=4.663046
+New Transformer.T7 phases=3 windings=2 buses=[Shivlal, ShivlalBus7] conns=[delta wye] kvs=[11 0.415] kvas=[200 200] %LoadLoss=1.013 %NoLoadLoss=0.137 Xhl=4.589461
+New Transformer.T8 phases=3 windings=2 buses=[Kelbai, KelbaiBus8] conns=[delta wye] kvs=[11 0.415] kvas=[100 100] %LoadLoss=1.220 %NoLoadLoss=0.130 Xhl=4.663046
+New Transformer.T9 phases=3 windings=2 buses=[Surya_masala, Surya_masalaBus9] conns=[delta wye] kvs=[11 0.415] kvas=[200 200] %LoadLoss=1.013 %NoLoadLoss=0.137 Xhl=4.589461
+New Transformer.T10 phases=3 windings=2 buses=[Doctor_bakale, Doctor_bakaleBus10] conns=[delta wye] kvs=[11 0.415] kvas=[160 160] %LoadLoss=0.942 %NoLoadLoss=0.121 Xhl=4.757706
 
-New Transformer.T11  phases=3 windings=2 buses=[ECAP_HTC, ECAP_HTCBus11] conns=[delta wye] kvs=[11 0.415] kvas=[1000 1000] %Rs=[1.41 1.41] Xhl=3.760000
-New Transformer.T12 phases=3 windings=2 buses=[Prakash, PrakashBus12] conns=[delta wye] kvs=[11 0.415] kvas=[100 100] %Rs=[1.41 1.41] Xhl=3.908964
-New Transformer.T13 phases=3 windings=2 buses=[Kayji_Skyline, Kayji_SkylineBus13] conns=[delta wye] kvs=[11 0.415] kvas=[400 400] %Rs=[1.41 1.41] Xhl=4.031625
-New Transformer.T14 phases=3 windings=2 buses=[Rudra_Developer, Rudra_DeveloperBus14] conns=[delta wye] kvs=[11 0.415] kvas=[160 160] %Rs=[1.41 1.41] Xhl=3.945897
+New Transformer.T11 phases=3 windings=2 buses=[ECAP_HTC, ECAP_HTCBus11] conns=[delta wye] kvs=[11 0.415] kvas=[1000 1000] %LoadLoss=0.657 %NoLoadLoss=0.113 Xhl=4.653806
+New Transformer.T12 phases=3 windings=2 buses=[Prakash, PrakashBus12] conns=[delta wye] kvs=[11 0.415] kvas=[100 100] %LoadLoss=1.220 %NoLoadLoss=0.130 Xhl=4.663046
+New Transformer.T13 phases=3 windings=2 buses=[Kayji_Skyline, Kayji_SkylineBus13] conns=[delta wye] kvs=[11 0.415] kvas=[400 400] %LoadLoss=0.677 %NoLoadLoss=0.156 Xhl=4.873246
+New Transformer.T14 phases=3 windings=2 buses=[Rudra_Developer, Rudra_DeveloperBus14] conns=[delta wye] kvs=[11 0.415] kvas=[160 160] %LoadLoss=0.942 %NoLoadLoss=0.121 Xhl=4.757706
 
-New Transformer.T15 phases=3 windings=2 buses=[Associate, AssociateBus15] conns=[delta wye] kvs=[11 0.415] kvas=[400 400] %Rs=[1.41 1.41] Xhl=4.031625
-New Transformer.T16 phases=3 windings=2 buses=[KV_School, KV_SchoolBus16] conns=[delta wye] kvs=[11 0.415] kvas=[160 160] %Rs=[1.41 1.41] Xhl=3.945897
-New Transformer.T17 phases=3 windings=2 buses=[Korde, KordeBus17] conns=[delta wye] kvs=[11 0.415] kvas=[100 100] %Rs=[1.41 1.41] Xhl=3.908964
-New Transformer.T18 phases=3 windings=2 buses=[Kapat_Factory, Kapat_FactoryBus18] conns=[delta wye] kvs=[11 0.415] kvas=[100 100] %Rs=[1.41 1.41] Xhl=3.908964
+New Transformer.T15 phases=3 windings=2 buses=[Associate, AssociateBus15] conns=[delta wye] kvs=[11 0.415] kvas=[400 400] %LoadLoss=0.677 %NoLoadLoss=0.156 Xhl=4.873246
+New Transformer.T16 phases=3 windings=2 buses=[KV_School, KV_SchoolBus16] conns=[delta wye] kvs=[11 0.415] kvas=[160 160] %LoadLoss=0.942 %NoLoadLoss=0.121 Xhl=4.757706
+New Transformer.T17 phases=3 windings=2 buses=[Korde, KordeBus17] conns=[delta wye] kvs=[11 0.415] kvas=[100 100] %LoadLoss=1.220 %NoLoadLoss=0.130 Xhl=4.663046
+New Transformer.T18 phases=3 windings=2 buses=[Kapat_Factory, Kapat_FactoryBus18] conns=[delta wye] kvs=[11 0.415] kvas=[100 100] %LoadLoss=1.220 %NoLoadLoss=0.130 Xhl=4.663046
 
-New Transformer.T19 phases=3 windings=2 buses=[4_Way_verekar, VerekarBus19] conns=[delta wye] kvs=[11 0.415] kvas=[200 200] %Rs=[1.41 1.41] Xhl=3.760000
-New Transformer.T20 phases=3 windings=2 buses=[Microwave, MicrowaveBus20] conns=[delta wye] kvs=[11 0.415] kvas=[160 160] %Rs=[1.41 1.41] Xhl=3.945897
+New Transformer.T19 phases=3 windings=2 buses=[4_Way_verekar, VerekarBus19] conns=[delta wye] kvs=[11 0.415] kvas=[200 200] %LoadLoss=1.013 %NoLoadLoss=0.137 Xhl=4.589461
+New Transformer.T20 phases=3 windings=2 buses=[Microwave, MicrowaveBus20] conns=[delta wye] kvs=[11 0.415] kvas=[160 160] %LoadLoss=0.942 %NoLoadLoss=0.121 Xhl=4.757706
 
-New Transformer.T21 phases=3 windings=2 buses=[Dairy_Old, Dairy_OldBus21] conns=[delta wye] kvs=[11 0.415] kvas=[200 200] %Rs=[1.41 1.41] Xhl=3.760000
-New Transformer.T22 phases=3 windings=2 buses=[Dairy_HTC, Dairy_HTCBus22] conns=[delta wye] kvs=[11 0.415] kvas=[500 500] %Rs=[1.41 1.41] Xhl=3.884276
-New Transformer.T23 phases=3 windings=2 buses=[Pisgal, PisgalBus23] conns=[delta wye] kvs=[11 0.415] kvas=[160 160] %Rs=[1.41 1.41] Xhl=3.945897
+New Transformer.T21 phases=3 windings=2 buses=[Dairy_Old, Dairy_OldBus21] conns=[delta wye] kvs=[11 0.415] kvas=[200 200] %LoadLoss=1.013 %NoLoadLoss=0.137 Xhl=4.589461
+New Transformer.T22 phases=3 windings=2 buses=[Dairy_HTC, Dairy_HTCBus22] conns=[delta wye] kvs=[11 0.415] kvas=[500 500] %LoadLoss=0.691 %NoLoadLoss=0.129 Xhl=4.750050
+New Transformer.T23 phases=3 windings=2 buses=[Pisgal, PisgalBus23] conns=[delta wye] kvs=[11 0.415] kvas=[160 160] %LoadLoss=0.942 %NoLoadLoss=0.121 Xhl=4.757706
 
 
 !----------------------------!

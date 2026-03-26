@@ -8,7 +8,7 @@
 
 ---
 
-## 1. Missing Named Section Lines (SO-numbered switching points)
+## 1. ✅ Missing Named Section Lines (SO-numbered switching points) [COSMETIC Not really part of topology]
 
 The diagrams show **6 named section/switching points** (SO1–SO6). Only **none** are modelled as named lines in the DSS — all feeder segments are coded as generic `FF##` lines.
 
@@ -30,7 +30,7 @@ The diagrams show **6 named section/switching points** (SO1–SO6). Only **none*
 
 The data table has **29 DTCs/HTCs**. The DSS defines only **27 transformers** (T_Haveli_Panchayat through T_Military_Gate). Cross-referencing reveals two complete omissions:
 
-### 2a. Missing: **6TTR HTC** (Table Sr. 24 — 300 kVA)
+### 2a. ✅ Missing: **6TTR HTC** (Table Sr. 24 — 300 kVA) [Not Present in SLD]
 - The table lists a **300 kVA HTC named "6TTR HTC"** at 40% impedance voltage (4.7%).
 - **No transformer or load named `6TTR_HTC` or anything similar exists anywhere in the DSS.**
 - On the diagram (Pg 2), the **NIT Goa** node feeds two HTCs downstream (NIT HTC → ITI HTC via FF42). A third HTC branch is implied but not shown — likely this is the missing 6TTR HTC.

@@ -60,7 +60,9 @@ Recommended workflow:
 
 1. Run simulations via `scripts/run_feeder.py`.
 2. Let the script solve circuits and collect OpenDSS exports.
-3. Review generated CSV files under `output/<FeederName>/`.
+3. Review generated files under:
+   - `output/<FeederName>/csv/` for exports
+   - `output/<FeederName>/plots/` for visualizations
 
 Default export set for feeder files:
 
@@ -79,7 +81,16 @@ Additional exports for Combined case:
 
 ### `scripts/run_feeder.py`
 
-Runs one, many, or all feeders and writes clean export files to `output/`.
+Runs one, many, or all feeders and writes:
+- CSV exports to `output/<FeederName>/csv/`
+- PNG plots to `output/<FeederName>/plots/`
+- Interactive voltage profile HTML to
+  `output/<FeederName>/plots/Voltage_Profile_Interactive.html`
+
+Interactive profile features include:
+- Clickable buses with inspection details (bus name, voltage, distance, connected nodes)
+- Clickable line segments with line name, voltage drop, and loading (when available)
+- Bus search, reset selection, and ANSI-violation-only focus toggle
 
 Configuration in script:
 
@@ -99,7 +110,7 @@ Runs harmonic impact studies and writes outputs under `results/Harmonics/`.
 Install dependencies:
 
 ```bash
-pip install OpenDSSDirect.py pandas numpy matplotlib
+pip install OpenDSSDirect.py pandas numpy matplotlib plotly
 ```
 
 Run feeder exports:
@@ -117,7 +128,10 @@ python scripts/EV_Harmonic_Analysis.py
 
 ## Outputs
 
-- `output/` stores feeder/combined OpenDSS export CSV files from `run_feeder.py`.
+- `output/` stores feeder/combined outputs from `run_feeder.py`:
+  - CSV exports in `output/<FeederName>/csv/`
+  - Generated plots in `output/<FeederName>/plots/`
+  - Interactive profile in `output/<FeederName>/plots/Voltage_Profile_Interactive.html`
 - `results/Chargers/` stores EV charger impact study outputs.
 - `results/Harmonics/` stores harmonic analysis outputs.
 
